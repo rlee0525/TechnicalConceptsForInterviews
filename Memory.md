@@ -1,5 +1,9 @@
 # Pointers and Memory Allocation
 
+## Pointers
+- In computer science, a pointer is a programming language object, whose value refers to (or "points to") another value stored elsewhere in the computer memory using its memory address.
+- A pointer references a location in memory, and obtaining the value stored at that location is known as dereferencing the pointer.
+
 ## Malloc (Intro to C Programming)
 
 ### int a;

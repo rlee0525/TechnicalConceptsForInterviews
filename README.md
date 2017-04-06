@@ -19,3 +19,8 @@
 ### [Pointers and Memory Allocation](/Memory.md)
 - Pointers
 - Memory Allocation
+
+### Potential topics
+- WebSocket
+- Mutex vs. Semaphore
+- Web Crawler
