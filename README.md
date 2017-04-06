@@ -9,6 +9,9 @@
 - Hadoop vs. NoSQL
 - Common types of NoSQL
 
+### [Basic Frontend Questions](/Frontend.md)
+- Basic frontend concepts
+
 ### [What is HTTP?](/HTTP.md)
 - HTTP headers
 - Request methods
