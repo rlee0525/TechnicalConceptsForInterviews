@@ -43,3 +43,61 @@
 - They are easy to maintain because they are (ideally) not dependent with the other code.
 - They are also used to help with name spacing. Another perk is that they can be reused.
 - Modules are comparable to Classes in other languages.
+
+### What are IIFEs?
+- Immediately Invoked Function Expressions.
+- An IIFE is an anonymous function that is created and then immediately invoked. It's not called from anywhere else (hence why it's anonymous), but runs just after being created.
+
+## Basic Concepts
+### Explain how 'this' works in JavaScript
+- This refers to an object and it is usually used inside a function or a method.
+- example: instead of saying Person.firstName, you can say this.firstName.
+- Use bind, apply or call to fix 'this' when it is out of context.
+
+### Explain why the following doesn't work as an IIFE: function foo(){ }();
+- Surround it with parenthesis.
+
+### What's the difference between a variable that is: null, undefined or undeclared?
+- undeclared variables don't even exist
+- undefined variables exist, but don't have anything assigned to them (typeof)
+- null variables exist and have null assigned to them (===)
+
+### What's a typical use case for anonymous functions?
+- Typically used as callbacks.
+
+### What's the difference between .call and .apply?
+- theFunction.apply(valueForThis, arrayOfArgs) apply -> array
+- theFunction.call(valueForThis, arg1, arg2, ...)
+
+### Explain Function.prototype.bind
+- theFunction.bind(valueForThis)(arg1, arg2, ...) (does not invoke function. params passed outside)
+- Returns function with the modified 'this'
+
+### What is document.write
+- The write() method is mostly used for testing: If it is used after an HTML document is fully loaded, it will delete all existing HTML.
+
+### Explain "hoisting"
+- Variables are defined at the top of the function.
+- In JavaScript, a variable can be declared after it has been used.
+- In other words; a variable can be used before it has been declared.
+
+### Describe event bubbling.
+- Event that happen in the inner most element would cause a chain reaction moving upward.
+- Events above the target element would also fire.
+- The target would stay the same but 'this' will change to reflect the firing element.
+
+### Explain event delegation.
+- Adding a single event handler to the parent to avoid adding event handlers to every children.
+
+### What's the difference between an "attribute" and a "property"?
+- JS DOM objects have properties.
+- Attributes are in the HTML itself. Similar to Props but not as good.
+- Attr is always a string while props can be anything.
+- Attr always returns the default value even though the value was changed.
+
+### Difference between document load event and document DOMContentLoaded event?
+- The DOMContentLoaded event will fire as soon as the DOM hierarchy has been fully constructed, the load event will do it when all the images and sub-frames have finished loading.
+
+### What is the difference between == and ===?
+- == will try to convert one side to the same type as the other.
+- === will strictly compare the two without any conversions.
