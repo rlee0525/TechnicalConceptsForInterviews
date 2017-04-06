@@ -12,3 +12,7 @@
 ### [What is HTTP?](/HTTP.md)
 - HTTP headers
 - Request methods
+
+### [Pointers and Memory Allocation](/Memory.md)
+- Pointers
+- Memory Allocation
