@@ -7,16 +7,16 @@
 - What are some architecture choice you make to create a problem that manages a car park?
 - Walk me through how you'd make a Tetris game. How would you model the data?
 
-###### classes, instance variables, how they interact, etc.
+**classes, instance variables, how they interact, etc.**
 
 ### Architecture Questions
 - How would you design Twitter?
 - Say you need to create a WhatsApp clone. Imagine you have millions of users. How do you build your system? What services do you create?
 - Explain to me how you'd architect an app like OpenTable?
 
-###### Talk about DB, application layer, caching
+**Talk about DB, application layer, caching**
 
-###### BAD ANSWER: I'd make a Rails app. I'd use such and such models and here's my DB schema.
+**BAD ANSWER**: I'd make a Rails app. I'd use such and such models and here's my DB schema.
 
 - Running on Heroku WEBrick server could probably service 100~requests per minute.
 - Production servers using rails => Unicorn(multi-process server) or Puma(multi-threaded server) => ex) Unicorn: 7 different workers available per request.
