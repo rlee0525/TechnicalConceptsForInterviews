@@ -114,3 +114,40 @@
 - Does it need to be done right this second?
 - If not, just queue it up in a background process and tell your user you'll get it done
 - Many things can be done asynchronously
+
+### Load Balancer (Distribute the load to different servers)
+- Reduces load
+- What if this goes down?
+  - More load balancers / fallover
+- Round Robin DNS
+- Put one into the database layer as well so cache can talk to load balancer rather than directly to the database.
+
+**Any big website, when you get IP address, it's not actually application server. It's load balancer that will send you to the server**
+
+## How much do your most common operations cost?
+
+### Facebook Design
+- Giant NoSQL graph DB of users.
+- Each user has list of friends array. (exists in caching layer)
+- Triggers read for every single one of your friends every time the user wants newsfeed (which is dynamic so cannot just store). (Writes are really cheap, reads are not)
+- 5000 friends limit because this is unscalable beyond that point because read is performed every single time.
+
+### Twitter Design
+- Each user has a list of feed that contains array of tweet ids. (exists in caching layer)
+- Every time you write in Twitter, it writes to every one of your followers and put the id to end of their feed array. (Writes are really expensive, Read are really cheap because feeds are already there)
+
+**There are always tradeoffs**
+
+**How would you design Twitter?**
+- NoSQL
+- read-heavy, expensive writes but tradeoffs (why not Facebook way)
+- store in caching layers
+- load balancers in front
+- distributed database over data centers
+- IaaS
+
+### WhatsApp Design
+- store more relationally (Can use RDBMS up to a million users maybe)
+- Use TCP
+- Client server application (out of sync problems)
+- Do we want clients to talk directly to each other without going through servers?
