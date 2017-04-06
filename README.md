@@ -1,5 +1,7 @@
 # Technical Concepts For Interviews
 
-- Architecture (The Basics)
-- Choosing Database (RDBMS vs. NOSQL)
-- What is HTTP?
+## [Architecture](/Architecture.md)
+
+## [Choosing Database (RDBMS vs. NOSQL)](/ChoosingDB.md)
+
+## [What is HTTP?](/HTTP.md)
