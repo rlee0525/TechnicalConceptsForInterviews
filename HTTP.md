@@ -5,11 +5,11 @@
 - HTTP headers allow the client and the server to pass additional information with the request or the response.
 
 ##### HTTP request header
-- ex) GET /tutorials/other/top-20-mysql-best-practices/ HTTP/1.1
+- ex) `GET /tutorials/other/top-20-mysql-best-practices/ HTTP/1.1`
 - method, path, protocol
 
 ##### HTTP response header
-- ex) HTTP/1.x 200 OK
+- ex) `HTTP/1.x 200 OK`
 
 ## What is HTTP Session?
 - A sequence of network request-response transactions.
