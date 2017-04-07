@@ -27,4 +27,3 @@
 ### Potential topics
 - WebSocket
 - Mutex vs. Semaphore
-- Web Crawler

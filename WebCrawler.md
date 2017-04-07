@@ -23,3 +23,8 @@
 - This file contains instructions for the spider on which parts of the website to index, and which parts to ignore.
 - The only way to control what a spider sees on your site is by using a robots.txt file.
 - All spiders are supposed to follow some rules, and the major search engines do follow these rules for the most part.
+- Including a robots.txt file can request bots to index only parts of a website, or nothing at all.
+
+## Web Indexing
+- Web crawlers can copy all the pages they visit for later processing by a search engine which indexes the downloaded pages so the users can search much more efficiently.
+- Crawlers can validate hyperlinks and HTML code. They can also be used for web scraping, data-driven programming.
