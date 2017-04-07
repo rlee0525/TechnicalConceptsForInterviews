@@ -20,6 +20,10 @@
 - Pointers
 - Memory Allocation
 
+### [Web Crawler](/WebCrawler.md)
+- What is a web crawler?
+- How does it work?
+
 ### Potential topics
 - WebSocket
 - Mutex vs. Semaphore
