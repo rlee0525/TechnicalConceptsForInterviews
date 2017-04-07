@@ -1,5 +1,7 @@
 # Web Crawler
 
+![WebCrawler Diagram](http://res.cloudinary.com/rlee0525/image/upload/v1491531624/500px-WebCrawlerArchitecture.svg_p9viyi.png)
+
 ## What is it?
 - A Search Engine Spider also known as a crawler, Robot, SearchBot or simply a Bot
 - A program that most search engines use to find what’s new on the Internet. (e.g. GoogleBot)
