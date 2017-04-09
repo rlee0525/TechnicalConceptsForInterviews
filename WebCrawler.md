@@ -11,7 +11,7 @@
 
 ## Three steps
 - First, the search bot starts by crawling the pages of your site.
-- Second, it continues indexing the words and content of the site
+- Second, it continues indexing the words and content of the site.
 - Lastly, it visit the links (web page addresses or URLs) that are found in your site. When the spider doesn’t find a page, it will eventually be deleted from the index.
   - Some of the spiders will check again for a second time to verify that the page really is offline.
 

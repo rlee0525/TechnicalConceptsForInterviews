@@ -3,6 +3,12 @@
 ## Pointers
 - In computer science, a pointer is a programming language object, whose value refers to (or "points to") another value stored elsewhere in the computer memory using its memory address.
 - A pointer references a location in memory, and obtaining the value stored at that location is known as dereferencing the pointer.
+- Two pointers can equal each other, such that changing one's value also changes the other's value (since they, in fact, point to the same address)
+
+## References
+- An alias for a pre-existing object and it does not have memory of its own.
+- One cannot create a reference without specifying where in memory it refers to.
+- Unlike pointers, references cannot be null and cannot be reassigned to another piece of memory.
 
 ## Malloc (Intro to C Programming)
 
