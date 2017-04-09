@@ -67,3 +67,18 @@
   - Providing isolation is the main goal of concurrency control. Depending on the concurrency control method (i.e., if it uses strict - as opposed to relaxed - serializability), the effects of an incomplete transaction might not even be visible to another transaction.
 - Durability: ensures that once a transaction has been committed, it will remain so, even in the event of power loss, crashes, or errors.
   - For instance, once a group of SQL statements execute, the results need to be stored permanently (even if the database crashes immediately thereafter). To defend against power loss, transactions (or their effects) must be recorded in a non-volatile memory.
+
+## Examples
+### Designing a cache
+##### For a single system (HASHMAP!)
+- How would you create a data structure that enables you to easily purge old data and also efficiently look up a value based on a key?
+- A linked list where a node is moved to the front every time it's accessed and remove the last element of the linked list when the list exceeds a certain size. (e.g. LRU Cache)
+  - Easily purge old data.
+- A hash table that maps from a query to the corresponding node in the linked list. This allows us to not only efficiently return the cached results, but also to move the appropriate node to the front of the list.
+  - Efficient lookups of data.
+
+##### For many machines
+- Several options to consider in deciding to what extend the cache is shared across machines.
+  - 1) Each machines has its own cache - relatively quick as no machine-to-machine calls but less effective
+  - 2) Each machine has a copy of the cache - common queries would nearly always be in the cache. However, too much time and space.
+  - 3) Each machine stores a segment of the cache - Assign queries based on the formula hash(query) % N to find out which machine holds certain part of the hash table. Increased # of machine-to-machine calls but with advantages.

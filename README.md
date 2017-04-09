@@ -31,3 +31,4 @@
 ### Potential topics
 - WebSocket
 - Mutex vs. Semaphore
+- Thread locking
