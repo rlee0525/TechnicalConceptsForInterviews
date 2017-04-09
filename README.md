@@ -20,6 +20,10 @@
 - Pointers
 - Memory Allocation
 
+### [System Design and Scalability](/SystemDesign.md)
+- More basic concepts before reading the architecture section
+- Example questions
+
 ### [Web Crawler](/WebCrawler.md)
 - What is a web crawler?
 - How does it work?
