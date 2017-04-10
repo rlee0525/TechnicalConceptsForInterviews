@@ -52,3 +52,11 @@
 
 ## What is HTTP session state?
 - a stateless protocol that does not require the server to retain information or status about each user for the duration of multiple requests. Often solved using HTTP cookies.
+
+## Cookies
+- An HTTP cookie (web cookie, browser cookie) is a small piece of data that a server sends to the user's web browser, that may store it and send it back together with the next request to the same server. Typically, it's used to know if two requests came from the same browser allowing to keep a user logged-in, for example. It remembers stateful information for the stateless HTTP protocol.
+- Cookies are mainly used for these three purposes:
+  - Session management (user logins, shopping carts)
+  - Personalization (user preferences)
+  - Tracking (analyzing user behavior)
+- Cookies have also been used for general client-side storage. While this use could have been considered legitimate at a time when there was no other way to store data on the client side, it is no longer the case nowadays where web browsers are capable of using various storage APIs. Since cookies are sent along with every request, it can be an additional performance burden (especially for mobile web). New APIs to consider for local storage are the Web storage API (localStorage and sessionStorage) and IndexedDB.
