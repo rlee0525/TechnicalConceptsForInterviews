@@ -17,9 +17,11 @@
 - Request methods
 - Cookies
 
-### [Pointers and Memory Allocation](/Memory.md)
+### [Pointers, Malloc, Threads](/Memory.md)
 - Pointers
 - Memory Allocation
+- Mutex vs. Semaphore
+- Thread locking
 
 ### [System Design and Scalability](/SystemDesign.md)
 - More basic concepts before reading the architecture section
@@ -35,5 +37,3 @@
 
 ### Potential topics
 - WebSocket
-- Mutex vs. Semaphore
-- Thread locking
