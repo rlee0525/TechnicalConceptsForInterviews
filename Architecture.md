@@ -151,3 +151,17 @@
 - Use TCP
 - Client server application (out of sync problems)
 - Do we want clients to talk directly to each other without going through servers?
+
+## Read vs Write
+### Which?
+The most important question you have to ask when considering the scalability of your database is, “What kind of system am I working with?” Are you working with a read-heavy or a write-heavy system? Examples of a read-heavy website might include: An online shopping site, where most people spend the majority of their time browsing (reads) and only a small amount of their time purchasing (writes), or a blog, where the majority of the time people are consuming posts (reads), and only a small amount of the time are commenting or the author is posting (writes). On the flip side, good examples of a write-heavy system include: A credit card transaction processor, where the main workload is journaling transactions (writes), and occasionally looking up transactions (reads), or Google Analytics, where the majority of the workload is journaling traffic data (writes) and occasionally showing graphs of the analytics (reads).
+
+Knowing what kind of system you’re building will help you select the right technologies when your website has to grow.
+
+### Scaling Reads
+
+If your website is primarily a read-heavy system, vertical scaling your datastore with a relational database such as MySQL or PostgreSQL can be a good choice. Couple your RDBMS with a robust caching strategy that uses memcached or a CDN and you’ll have a system that can scale pretty cheaply. In this model, when the database runs out of capacity, putting more pieces of data in the cache helps offset the burden of reads. When there’s no more items left to cache, upgrading your database hardware with faster disks or more processors will usually buy you the necessary runway. Moore’s law makes vertical scaling with this method as simple as buying better hardware.
+
+### Scaling Writes
+
+If your website is primarily a write-heavy system, you’re probably going to want to think about using a horizontally scalable datastore such as Riak, Cassandra or HBase. Unlike most RDBMSes, these datastores usually grow by adding more nodes. Because your system is going to be mostly writing, caching layers will not help you much like in a read-heavy system. Many write-heavy systems start out using a vertical scaling strategy, but soon run out of runway. Why? Because hard-drives and processor counts plateau at a certain point, and the marginal cost of adding one more core or a harddrive that does a few more I/O ops per second grows exponentially. If you instead choose a horizontally scalable strategy for your write-heavy system, you reach an inflection point where the marginal cost of adding one more node to the system becomes far cheaper than the cost of a harddrive that might eek out a few more disk seeks.
