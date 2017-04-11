@@ -1,5 +1,37 @@
 # Pointers and Memory Allocation
 
+## Basics (Array)
+### Methods
+- indexing []
+- setting []=
+- push
+- pop
+- shift
+- unshift
+
+### Static vs. Dynamic Arrays
+- Static - only indexing and setting
+- Dynamic - built on static array
+
+### Random Access Memory (RAM)
+- Indifferent to how you access the memory. (any address can be accessed equally as fast)
+- Think of it as contiguous blocks of cells
+  - Each cell can only store 8 bytes of information (for 64 bit architecture)
+  - Each cell has memory address associated with it. (e.g. 800 for first cell then 808 for next and so on)
+  - Stores binary data
+- Loading information from RAM is very slow. Try to load it from Registers. (fastest it can be) - Even having cache is slower than having information in Registers.
+
+### CPU
+**CPU is used to access, store, or manipulate information using RAM.**
+
+#### CPU Methods to manipulate data
+- Load
+- Store
+- Add, Subtract, Multiply, Divide, Mod
+- Greater / Less / or equal
+- Logical operations (and, or)
+- Jump, If
+
 ## Pointers
 - In computer science, a pointer is a programming language object, whose value refers to (or "points to") another value stored elsewhere in the computer memory using its memory address.
 - A pointer references a location in memory, and obtaining the value stored at that location is known as dereferencing the pointer.
