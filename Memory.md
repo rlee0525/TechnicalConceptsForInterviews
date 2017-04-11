@@ -52,3 +52,19 @@
 ## Threads
 - Thread: a minimum CPU resources needed for executing a program.
 - Threads cannot speed up execution of code. They do not make the computer run faster. All they can do is increase the efficiency of the computer by using time that would otherwise be wasted. In certain types of processing this optimization can increase efficiency and decrease running time.
+
+## Lock, Mutex, and Semaphore
+### Simplified
+- A **lock** allows only one thread to enter the part that's locked and the lock is not shared with any other processes.
+- A **mutex** is the same as a lock but it can be system wide (shared by multiple processes).
+- A **semaphore** does the same as a mutex but allows x number of threads to enter.
+**You also have read/write locks that allows either unlimited number of readers or 1 writer at any given time.**
+
+### In-depth
+- Critical Section: User object used for allowing the execution of just one active thread from many others within one process. The other non selected threads are put to sleep. [No interprocess capability, very primitive object].
+- Mutex Semaphore (aka **Mutex**): Kernel object used for allowing the execution of just one active thread from many others, among different processes. The other non selected threads are put to sleep. This object supports thread ownership, thread termination notification, recursion (multiple 'acquire' calls from same thread) and 'priority inversion avoidance'. [Interprocess capability, very safe to use, a kind of 'high level' synchronization object].
+- Counting Semaphore (aka **Semaphore**): Kernel object used for allowing the execution of a group of active threads from many others. The other non selected threads are put to sleep.[Interprocess capability however not very safe to use because it lacks following 'mutex' attributes: thread termination notification, recursion?, 'priority inversion avoidance'?, etc].
+- **Spinlocks**: A lock which uses busy waiting. (The acquiring of the lock is made by xchg or similar atomic operations). [No thread sleeping, mostly used at kernel level only. Inefficient for User level code].
+  - Critical Region: A region of memory shared by 2 or more processes.
+  - Lock: A variable whose value allows or denies the entrance to a 'critical region'. (It could be implemented as a simple 'boolean flag').
+  - Busy waiting: Continuously testing of a variable until some value appears.
