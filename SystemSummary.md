@@ -72,7 +72,7 @@
   <img src="http://lethain.com/static/blog/intro_arch/platform_layer.png" alt="Platform Layer"/>
 </p>
 
-##Key topics for designing a system
+## Key topics for designing a system
 
 1) **Concurrency**
 * Do you understand threads, deadlock, and starvation? Do you know how to parallelize algorithms? Do you understand consistency and coherence?
@@ -93,7 +93,7 @@
 *  Are you thinking about how things can fail, especially in a distributed environment? Do know how to design a system to cope with network failures? Do you understand durability?
 
 
-##Web App System design considerations:
+## Web App System design considerations:
 * Security (CORS)
 * Using CDN
 	* A content delivery network (CDN) is a system of distributed servers (network) that deliver webpages and other Web content to a user based on the geographic locations of the user, the origin of the webpage and a content delivery server.
