@@ -37,7 +37,7 @@
 ### Potential topics
 - WebSocket
 
-# Contribute
+# How To Contribute
 
 To fix a bug or create a feature, follow these steps:
 
@@ -49,3 +49,5 @@ To fix a bug or create a feature, follow these steps:
 7. Create a Pull Request, add appropriate label and assign [Raymond Lee](https://www.github.com/rlee0525) as the reviewer.
 
 Please click [here](https://github.com/rlee0525/TechnicalConceptsForInterviews/issues/new) to report an issue or request a new feature.
+
+... or simply star the repo :D
