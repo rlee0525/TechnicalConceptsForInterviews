@@ -1,5 +1,7 @@
 # Frontend Interview Questions
 
+> Contributor: Michael Mach
+
 ## Basic Terms
 ### What is a DOM?
 - Document Object Model <- browser makes this when page loads
