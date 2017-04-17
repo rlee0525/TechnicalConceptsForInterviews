@@ -150,6 +150,7 @@ if (xArgs.length > 0) {
 };
 ```
 
+## HTML Questions
 ### What does a doctype do?
 - It tells the browser what version the language the page is written in.
 - It tells your browser how to render your document.
@@ -183,6 +184,12 @@ Stricter error handling.
 - localStorage - stores data clientside. data persists until user clears browser cache/local stored data. (window)
 - sessionStorage - data is also stored clientside but is destroyed when browser closes.
 - cookie - stored data that is usually accessed server-side. It can expire.
+
+### Describe the difference between `<script>`, `<script async>` and `<script defer>`.
+- `<script>`: HTML file will be parsed until the script file is hit. Parsing will stop to fetch the file and the script will be executed before parsing continues.
+- `<script async>`: Downloads the file during HMTL parsing. HTML parsing will pause to execute file when finished downloading.
+- `<script defer>`: Downloads file during HTML parsing. Will only execute after parsing is completed. Also guaranteed to execute in order of document appearance.
+- Read more here: http://www.growingwiththeweb.com/2014/02/async-vs-defer-attributes.html
 
 ### What is the difference between classes and IDs in CSS?
 - ID and Classes can both be used to select an element to modify using CSS.
