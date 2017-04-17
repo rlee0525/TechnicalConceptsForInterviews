@@ -54,6 +54,6 @@ Please click [here](https://github.com/rlee0525/TechnicalConceptsForInterviews/i
 
 ## Contributors
 - [Daniel Chang](https://github.com/DanielLChang)
-- [David Hu](htthttps://github.com/davidhu2000)
+- [David Hu](https://github.com/davidhu2000)
 - [Michael Mach](https://github.com/mike591)
 - [Tai Chung](https://github.com/tchung1118)
