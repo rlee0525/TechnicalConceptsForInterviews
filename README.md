@@ -44,10 +44,16 @@ To fix a bug or create a feature, follow these steps:
 1. Fork the repo
 2. Create a new branch (`git checkout -b awesome-feature`)
 3. Make changes or add new changes.
-5. Commit your changes (`git add -A; git commit -m 'Awesome new feature'`)`
+5. Commit your changes (`git add -A; git commit -m 'Awesome new feature'`)
 6. Push to the branch (`git push origin awesome-feature`)
 7. Create a Pull Request, add appropriate label and assign [Raymond Lee](https://www.github.com/rlee0525) as the reviewer.
 
 Please click [here](https://github.com/rlee0525/TechnicalConceptsForInterviews/issues/new) to report an issue or request a new feature.
 
 ... or simply star the repo :D
+
+## Contributors
+- [Daniel Chang](https://github.com/DanielLChang)
+- [David Hu](htthttps://github.com/davidhu2000)
+- [Michael Mach](https://github.com/mike591)
+- [Tai Chung](https://github.com/tchung1118)
