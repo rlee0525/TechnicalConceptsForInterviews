@@ -63,6 +63,7 @@
 - undeclared variables don't even exist
 - undefined variables exist, but don't have anything assigned to them (typeof)
 - null variables exist and have null assigned to them (===)
+- null is a primitive value, not an object. even though `typeof null` returns `object`
 
 ### What's a typical use case for anonymous functions?
 - Typically used as callbacks.
@@ -82,13 +83,15 @@
 - Variables are defined at the top of the function.
 - In JavaScript, a variable can be declared after it has been used.
 - In other words; a variable can be used before it has been declared.
+- `var` is hoisted. `const` and `let` are not.
 
 ### Describe event bubbling.
-- Event that happen in the inner most element would cause a chain reaction moving upward.
+- Event that happens in the inner most element would cause a chain reaction moving upward.
 - Events above the target element would also fire.
 - The target would stay the same but 'this' will change to reflect the firing element.
 
 ### Explain event delegation.
+- Using event propagation (bubbling) to handle events at a higher level in the DOM.
 - Adding a single event handler to the parent to avoid adding event handlers to every children.
 
 ### What's the difference between an "attribute" and a "property"?
@@ -150,6 +153,7 @@ if (xArgs.length > 0) {
 };
 ```
 
+## HTML Questions
 ### What does a doctype do?
 - It tells the browser what version the language the page is written in.
 - It tells your browser how to render your document.
@@ -183,6 +187,12 @@ Stricter error handling.
 - localStorage - stores data clientside. data persists until user clears browser cache/local stored data. (window)
 - sessionStorage - data is also stored clientside but is destroyed when browser closes.
 - cookie - stored data that is usually accessed server-side. It can expire.
+
+### Describe the difference between `<script>`, `<script async>` and `<script defer>`.
+- `<script>`: HTML file will be parsed until the script file is hit. Parsing will stop to fetch the file and the script will be executed before parsing continues.
+- `<script async>`: Downloads the file during HMTL parsing. HTML parsing will pause to execute file when finished downloading.
+- `<script defer>`: Downloads file during HTML parsing. Will only execute after parsing is completed. Also guaranteed to execute in order of document appearance.
+- Read more here: http://www.growingwiththeweb.com/2014/02/async-vs-defer-attributes.html
 
 ### What is the difference between classes and IDs in CSS?
 - ID and Classes can both be used to select an element to modify using CSS.
