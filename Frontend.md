@@ -63,6 +63,7 @@
 - undeclared variables don't even exist
 - undefined variables exist, but don't have anything assigned to them (typeof)
 - null variables exist and have null assigned to them (===)
+- null is a primitive value, not an object. even though `typeof null` returns `object`
 
 ### What's a typical use case for anonymous functions?
 - Typically used as callbacks.
@@ -82,13 +83,15 @@
 - Variables are defined at the top of the function.
 - In JavaScript, a variable can be declared after it has been used.
 - In other words; a variable can be used before it has been declared.
+- `var` is hoisted. `const` and `let` are not.
 
 ### Describe event bubbling.
-- Event that happen in the inner most element would cause a chain reaction moving upward.
+- Event that happens in the inner most element would cause a chain reaction moving upward.
 - Events above the target element would also fire.
 - The target would stay the same but 'this' will change to reflect the firing element.
 
 ### Explain event delegation.
+- Using event propagation (bubbling) to handle events at a higher level in the DOM.
 - Adding a single event handler to the parent to avoid adding event handlers to every children.
 
 ### What's the difference between an "attribute" and a "property"?
