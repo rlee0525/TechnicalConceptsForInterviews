@@ -20,6 +20,8 @@ Angular is full MVC while React is simply V.
 
 - Watchers: Watchers (similar to event listeners) are attached to each component and each time a component is changed, watchers check if we should modify something else; and if needed, make appropriate modifications. This part in Angular 2 is way fast than its previous version so each time a component is changed, we don’t have to run any verifications on objects (depending on immutable elements).
 
+- Typescript: Angular2 comes default with Typescript. Compared to vanillaJS, Typescript offers better code organization, typing, and annotations so Typescript is better from a 'strictness' perspective but in regards to 'learning' you will often find yourself learning Typescript and Angular at the same time.
+
 ## Learning Curve
 **React:** Easy to learn. Takes some time to get used to one-way flow, but is very clear once understood. Only has a few lifecycle methods and are self explanatory.
 
