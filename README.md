@@ -37,8 +37,13 @@
 - What is a web crawler?
 - How does it work?
 
+### [WebSocket](/WebSocket.md)
+- What is WebSocket
+- Contrast to other alternatives
+- Resources
+
 ### Potential topics
-- WebSocket
+
 
 # How To Contribute
 
