@@ -1,5 +1,8 @@
 # Technical Concepts For Interviews
 
+### [Angular vs. React](/AngularVReact.md)
+- Angular vs. React - overview
+
 ### [Architecture Crash Course](/Architecture.md)
 - High level overview of architecture questions / concepts
 
