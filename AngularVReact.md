@@ -1,5 +1,26 @@
 # Introduction
-Comparison points on Angular vs. React. Angular is full MVC while React is simply V.
+Before we get started, **I am in no way saying one framework is better than the other.** These are just some comparison points on Angular vs. React. In the end it all comes down to whatever you're looking for.
+
+Okay, read on.
+
+## Basic Concepts
+Angular is full MVC while React is simply V.
+
+**React:**
+
+- Virtual DOM: React is more of a UI render component than a full framework. Virtual DOM gives React 3 main advantages.
+
+1. Changes occur by comparing DOM and the virtual DOM. React only changes what is needed in the most optimal way.
+2. As we don't interact directly with the DOM, a browser is not needed to test React
+3. The virtual DOM has the ability to connect to other entities (Native and Electron).
+
+- State: Components in React have a state which represents component-related data. Updating state will allow the page to be reactive.
+
+**Angular:**
+
+- Watchers: Watchers (similar to event listeners) are attached to each component and each time a component is changed, watchers check if we should modify something else; and if needed, make appropriate modifications. This part in Angular 2 is way fast than its previous version so each time a component is changed, we don’t have to run any verifications on objects (depending on immutable elements).
+
+- Typescript: Angular2 requires Typescript. Compared to vanillaJS, Typescript offers better code organization, typing, and annotations so Typescript is better from a 'strictness' perspective but in regards to 'learning' you will often find yourself learning Typescript and Angular at the same time.
 
 ## Learning Curve
 **React:** Easy to learn. Takes some time to get used to one-way flow, but is very clear once understood. Only has a few lifecycle methods and are self explanatory.
@@ -70,24 +91,39 @@ HTML-wise, Angular's results closely resemble the HTML template.
 **Winner: Tie**
 
 ## Templating
-Most important as 80% of writing an online service is UI. When writing a repeater often times it looks backwards.
+Most important as 80% of writing an online service is UI. Angular puts JS into HTML and React puts HTML into JavaScript. This comes down to preference, but convenience-wise, I feel it is better to handle JS from beginning to end. For example, here is a list in React and Angular.
+
 **React:**
 
 ```JavaScript
-var createItem = function(itemText) {
-    return <li>{itemText}</li>;
-};
-return <ul>{this.props.items.map(createItem)}</ul>;
+let List = function({ items }) {
+  return (
+    <ul>
+      {items.map(item =>
+        <li key={item.id}>{item.name}</li>
+      )}
+    </ul>
+  );
+}
 ```
 
 **Angular:**
 
 ```JavaScript
 <ul>
-    <li ng-repeat="item in items">{{item}}</li>
+  <li *ngFor="let item of items; let i = index">
+    {{i}} {{item}}
+  </li>
 </ul>
 ```
-**Winner: Angular**
+**Winner: tie**
+
+## Speed
+**React:** Uses one-way data binding. So we need to write code that handles the tracking between the model and the view. But once the code is written, the components are fast as we are only changing elements that are changed in the DOM. This allows for smoother updates.
+
+**Angular:** Uses two-way data binding. So if I need to change a value in the DOM, both the view and the model are updated. This behavior is possible because each binding requires a watcher; so the bigger your app, the bigger the impact of those watchers.
+
+For more reading on this, I suggest: https://auth0.com/blog/more-benchmarks-virtual-dom-vs-angular-12-vs-mithril-js-vs-the-rest/
 
 # Conclusion
 Obviously both frameworks have their pros and cons.
