@@ -1,6 +1,6 @@
 # Technical Concepts For Interviews
 
-### [Architecture](/Architecture.md)
+### [Architecture Crash Course](/Architecture.md)
 - High level overview of architecture questions / concepts
 
 ### [Choosing Database (RDBMS vs. NOSQL)](/ChoosingDB.md)
