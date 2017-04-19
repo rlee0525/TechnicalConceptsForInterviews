@@ -1,6 +1,8 @@
 WebSockets
 ===================
 
+> Contributor: Randy Jap
+
 Simply put, WebSocket is a full-duplex (simultaneous two-way or bi-directional) communications protocol over a single TCP connection.  This is especially great if we want an web application to update some information without having the user prompt for it.  Applications to this are endless and typically include chat apps, stock tickers, news, and any type of live reports.  But before we start to delve into how it works, let's contrast it to some alternatives.
 
 What it is not (other communication strategies)
