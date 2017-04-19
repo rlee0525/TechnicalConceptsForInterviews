@@ -12,8 +12,11 @@
 - Hadoop vs. NoSQL
 - Common types of NoSQL
 
-### [Basic Frontend Questions](/Frontend.md)
-- Basic frontend concepts
+### [Frontend Questions - The Basics](/Frontend.md)
+- Basic frontend terms and concepts
+
+### [Frontend - HTML/CSS](/HTML_CSS.md)
+- HTML and CSS specific frontend interview questions
 
 ### [What is HTTP?](/HTTP.md)
 - HTTP headers
