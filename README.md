@@ -42,9 +42,6 @@
 - Contrast to other alternatives
 - Resources
 
-### Potential topics
-
-
 # How To Contribute
 
 To fix a bug or create a feature, follow these steps:
@@ -64,4 +61,5 @@ Please click [here](https://github.com/rlee0525/TechnicalConceptsForInterviews/i
 - [Daniel Chang](https://github.com/DanielLChang)
 - [David Hu](https://github.com/davidhu2000)
 - [Michael Mach](https://github.com/mike591)
+- [Randy Jap](https://github.com/randyjap)
 - [Tai Chung](https://github.com/tchung1118)
