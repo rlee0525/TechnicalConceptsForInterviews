@@ -1,4 +1,7 @@
-# Introduction
+# Angular vs. React
+
+> Contributor: Daniel Chang
+
 Before we get started, **I am in no way saying one framework is better than the other.** These are just some comparison points on Angular vs. React. In the end it all comes down to whatever you're looking for.
 
 Okay, read on.
