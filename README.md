@@ -42,6 +42,19 @@
 - Contrast to other alternatives
 - Resources
 
+# More Topics...
+**Feel free to work on any of these and make a pull request!**
+- Regex
+- Topological Sort, Dijkstra's Algorithm, Priority Queue
+- Hash Table Collision Resolution
+- Rabin-Karp Substring Search
+- AVL Trees / Self-balancing BST
+- Red-Black Trees
+- MapReduce
+- Bellman-Ford Algorithm
+- Floyd-Warshall Algorithm
+- Minimum Spanning Trees
+
 # How To Contribute
 
 To fix a bug or create a feature, follow these steps:
