@@ -23,6 +23,9 @@
 - Request methods
 - Cookies
 
+### [Regex Crash Course](https://github.com/davidhu2000/regex_crash_course)
+- [David Hu](https://github.com/davidhu2000) is currently making a great repo on regex crash course. Check it out!
+
 ### [Pointers, Malloc, Threads](/Memory.md)
 - Pointers
 - Memory Allocation
@@ -44,9 +47,6 @@
 - What is WebSocket
 - Contrast to other alternatives
 - Resources
-
-### [Regex Crash Course](https://github.com/davidhu2000/regex_crash_course)
-- [David Hu](https://github.com/davidhu2000) is currently making a great repo on regex crash course. Check it out!
 
 # More Topics...
 **Feel free to work on any of these and make a pull request!**
