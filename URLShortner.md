@@ -52,11 +52,11 @@ c) Following a shortlink should be fast. The shortlink follower should be resili
 
 Let's call our main entity a Link. A Link is a mapping between a shortLink on our site, and a longLink, where we redirect people when they visit the shortLink.
 
-```
-Link
-  - shortLink
-  - longLink
-```
+
+    Link
+    - shortLink
+    - longLink
+
 
 The shortLink could be one we've randomly generated, or one a user chose.
 
@@ -64,27 +64,26 @@ Of course, we don't need to store the full ShortLink URL (bit.ly/home), we just 
 
 So let's rename the shortLink field to "slug."
 
-```
-Link
-  - slug
-  - longLink
-```
+
+    Link
+    - slug
+    - longLink
+
 
 Now the name longLink doesn't make as much sense without shortLink. So let's change it to destination.
 
-```
-Link
-  - slug
-  - destination
-```
+
+    Link
+    - slug
+    - destination
 
 And let's call this whole model/table ShortLink, to be a bit more specific.
 
-```
-ShortLink
-  - slug
-  - destination
-```
+
+    ShortLink
+    - slug
+    - destination
+
 
 Investing time in carefully naming things from the beginning is always impressive in an interview. A big part of code readability is how well things are named!
 
@@ -92,3 +91,59 @@ Investing time in carefully naming things from the beginning is always impressiv
 **Naive first design**
   - Our main goal here is to come up with a skeleton to start building things out from.
   - Think about what endpoints/views we'll need, and what each one will have to do.
+
+**API - REST-style**
+
+1) Create a ShortLink
+  - Endpoint at bit.ly/api/v1/shortlink
+
+  To create a new ShortLink, we'll send a POST request with destination as required and slug as optional.
+
+
+      $ curl --data '{ "destination": "raymondlee.io"}' https://bit.ly/api/v1/shortlink
+    {
+      "slug": "o2prKj",
+      "destination": "raymondlee.io"
+    }
+
+
+  For now, we'll just reject non-POST requests with an error 501 ("not implemented") for now.
+
+  So our endpoint might look something like this (pseudocode):
+
+      public Response shortlink(Request request) {
+        if (request.method() != HttpMethod.POST) {
+            return new Response(HttpStatus.ERROR501); // HTTP 501 NOT IMPLEMENTED response
+        }
+
+        String destination = request.getData().getDestination();
+        String slug = request.getData().getSlug();
+
+        // if the request did not include a slug, make a new one
+        if (slug == null) {
+            slug = generateRandomSlug();
+        }
+
+        DB.insertLink(slug, destination);
+
+        String responseBody = "{ 'slug' : '" + slug + "' }";
+
+        return new Response(HttpStatus.OK200, responseBody); // HTTP 200 OK response
+    }
+
+  **Questions to consider**
+  - What characters can we use in randomly generated slugs?
+  - What characters are allowed in URLs?
+  - How do we ensure a randomly generated slug hasn't already been used?
+  - If there is such a collision, how do we handle it?
+
+
+  2) Make a way to follow a ShortLink.
+
+      public Response redirect(Request request) {
+        String destination = DB.getLinkDestination(request.getPath());
+        return new Response(HttpStatus.FOUND302, destination); // HTTP 302 REDIRECT response
+    }
+
+### Slug Generation
+**How long should they be, what characters should we allow, and how should we handle random slug collisions?**
