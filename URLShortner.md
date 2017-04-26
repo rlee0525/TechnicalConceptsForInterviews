@@ -33,3 +33,62 @@ It's okay if your list of features was different from ours. Let's proceed with t
 
 ### Design Goals
 **What are we optimizing for?**
+
+a) We should be able to store a lot of links, since we're not automatically expiring them.
+
+b) Our shortlinks should be as short as possible. The whole point of a link shortener is to make short links! Having shorter links than our competition could be a business advantage.
+
+c) Following a shortlink should be fast. The shortlink follower should be resilient to load spikes.
+
+**Think about tradeoffs. Which goal is more important?**
+
+### Data Model
+**Think about the database schema or the models we'll want.**
+  - What things do we need to store, and how should they relate to each other?
+  - Is this a many-to-many or a one-to-many?
+  - Should these be in the same table or different tables?
+
+**We care about using descriptive and consistent names!**
+
+Let's call our main entity a Link. A Link is a mapping between a shortLink on our site, and a longLink, where we redirect people when they visit the shortLink.
+
+```
+Link
+  - shortLink
+  - longLink
+```
+
+The shortLink could be one we've randomly generated, or one a user chose.
+
+Of course, we don't need to store the full ShortLink URL (bit.ly/home), we just need to store the "slug"—the part at the end (e.g. "home").
+
+So let's rename the shortLink field to "slug."
+
+```
+Link
+  - slug
+  - longLink
+```
+
+Now the name longLink doesn't make as much sense without shortLink. So let's change it to destination.
+
+```
+Link
+  - slug
+  - destination
+```
+
+And let's call this whole model/table ShortLink, to be a bit more specific.
+
+```
+ShortLink
+  - slug
+  - destination
+```
+
+Investing time in carefully naming things from the beginning is always impressive in an interview. A big part of code readability is how well things are named!
+
+### Views / Pages / Endpoints
+**Naive first design**
+  - Our main goal here is to come up with a skeleton to start building things out from.
+  - Think about what endpoints/views we'll need, and what each one will have to do.
