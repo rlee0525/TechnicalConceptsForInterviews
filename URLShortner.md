@@ -147,3 +147,38 @@ Investing time in carefully naming things from the beginning is always impressiv
 
 ### Slug Generation
 **How long should they be, what characters should we allow, and how should we handle random slug collisions?**
+
+- 1) What characters can we allow in our randomly-generated slugs?
+  - A - Z, a - z, 0 - 9, special characters: $ - _ . + ! * , ( )
+  - take out all of the special characters for readability and typeability unless user is specifying her own slug
+  => 26 + 26 + 10 = 62 possible characters
+
+**Mention potential ambiguities and applying rules for l vs 1 and so on but also mention that this is beyond the scope at the moment.**
+
+- 2) How many distinct slugs do we need?
+  - About how many slugs do we need to be able to accommodate? This is a good question to ask your interviewer. (100 per minute?)
+
+- 3) how do we generate a random slug?
+
+```   
+  public String generateRandomSlug() {
+    Random random = new Random();
+    final String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    final int numChars = 7;
+    String result = "";
+
+    for (int i = 0; i < numChars; i++) {
+        int randomIndex = random.nextInt(alphabet.length() - 1);
+        result += alphabet.charAt(randomIndex);
+    }
+
+    return result;
+}
+```
+
+  **But how do we ensure slugs are unique? Two general strategies:**
+
+  1) "Re-roll" when we hit an already-used slug
+
+  2) Adjust our slug generation strategy to only ever give us un-claimed slugs.
+    => **use base conversion**
