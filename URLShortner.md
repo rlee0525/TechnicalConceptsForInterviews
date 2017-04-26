@@ -182,3 +182,21 @@ Investing time in carefully naming things from the beginning is always impressiv
 
   2) Adjust our slug generation strategy to only ever give us un-claimed slugs.
     => **use base conversion**
+
+### Database
+**First bottleneck is database read. What kind of DB should we use?**
+
+- Looking at our app, it seems like relational queries aren't likely to be a big part of our app's functionality, even if we added a few of the obvious next features we might want. So let's go with NoSQL for this.
+
+  1) **Indexing**: In a NoSQL context, that means carefully designing our keys. In this case, make the key for each row in the ShortLink table be the slug.
+
+  2) **Memory**: We could put as much of the data in memory as possible, to avoid disc seeks. => in-memory cache system
+
+  > If we did add a caching layer, there are a few things we could talk about:
+    - **The eviction strategy**. If the cache is full, what do we remove to make space? The most common answer is an LRU ("least recently used") strategy.
+    - **Sharding strategy**. Sharding our cache lets us store more stuff in memory, because we can use more machines. But how do we decide which things go on which shard? The common answer is a "hash and mod strategy"—hash the key, mod the result by the number of shards, and you get a shard number to send your request to. But then how do you add or remove a shard without causing an unmanageable spike in cache misses?
+    - **Database sharding**. We could shard our underlying database instead of, or in addition to caching. If the database has a built-in in-memory cache, sharding the data would allow us to keep more of our data in working memory without an additional caching layer! Database sharding has some of the same challenges as cache sharding. Adding and removing shards can be painful, as can migrating the schema without site downtime. That said, some NoSQL databases have great sharding systems built right in, like Cassandra.
+
+  3) **Processing Web Requests**: We should set up multiple webserver workers. We can put them all behind a load balancer that distributes incoming requests across the workers. Having multiple web servers adds some complexity to our database (and caching layers) that we'll need to consider. They'll need to handle more simultaneous connections, for example. Most databases are pretty good at this by default.
+
+  This should get our database reads nice and fast!
