@@ -23,6 +23,9 @@
 - Request methods
 - Cookies
 
+### [Miscellaneous Interview Questions](/Miscellaneous.md)
+- Explain Internet
+
 ### [Regex Crash Course](https://github.com/davidhu2000/regex_crash_course)
 - [David Hu](https://github.com/davidhu2000) is currently making a great repo on regex crash course. Check it out!
 

@@ -37,3 +37,24 @@
 
 ## Step 3
 ### The browser sends a HTTP request to the web server.
+
+## Step 4
+### The Facebook server responds with a permanent redirect.
+
+## Step 5
+### The browser follows the redirect.
+
+## Step 6
+### The server ‘handles’ the request.
+
+## Step 7
+### The server sends back a HTML response.
+
+## Step 8
+### The browser begins rendering the HTML.
+
+## Step 9
+### The browser sends requests for objects embedded in HTML.
+
+## Step 10
+### The browser sends further asynchronous (AJAX) requests.
