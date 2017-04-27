@@ -22,14 +22,14 @@
     - Normally, the DNS server will have names of the .com nameservers in cache, and so a hit to the root nameserver will not be necessary.
 
 
-    One problem: the entire domain like wikipedia.org or facebook.com maps to a single IP address.
+      One problem: the entire domain like wikipedia.org or facebook.com maps to a single IP address.
 
-    To mitigate the bottleneck:
+      To mitigate the bottleneck:
 
-    - **Round-robin DNS**: the DNS lookup returns multiple IP addresses, rather than just one. (e.g. facebook.com actually maps to four IP addresses)
+      - **Round-robin DNS**: the DNS lookup returns multiple IP addresses, rather than just one. (e.g. facebook.com actually maps to four IP addresses)
 
-    - **Load-balancer**: a piece of hardware that listens on a particular IP address and forwards the requests to other servers. (Major sites will typically use expensive high-performance load balancers.)
+      - **Load-balancer**: a piece of hardware that listens on a particular IP address and forwards the requests to other servers. (Major sites will typically use expensive high-performance load balancers.)
 
-    - **Geographic DNS**: improves scalability by mapping a domain name to different IP addresses, depending on the client’s geographic location. (Great for hosting static content so that different servers don’t have to update shared state.)
+      - **Geographic DNS**: improves scalability by mapping a domain name to different IP addresses, depending on the client’s geographic location. (Great for hosting static content so that different servers don’t have to update shared state.)
 
-    - **Anycast**: a routing technique where a single IP address maps to multiple physical servers. (It does not fit well with TCP and is rarely used in that scenario.)
+      - **Anycast**: a routing technique where a single IP address maps to multiple physical servers. (It does not fit well with TCP and is rarely used in that scenario.)
