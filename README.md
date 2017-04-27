@@ -3,10 +3,10 @@
 ### [Angular vs. React](/AngularVReact.md)
 - Overview
 
-### [Architecture Crash Course](/Architecture.md)
+### [Architecture Crash Course](/Architecture.md) :star:
 - High level overview of architecture questions / concepts
 
-### [Choosing Database (RDBMS vs. NOSQL)](/ChoosingDB.md)
+### [Choosing Database (RDBMS vs. NOSQL)](/ChoosingDB.md) :star:
 - RDBMS vs. NoSQL
 - Row store vs. Column store
 - Hadoop vs. NoSQL
@@ -41,6 +41,9 @@
 
 ### [URL Shortner](/URLShortner.md)
 - How would you design a URL Shortner?
+
+### [Navigating To A URL](/VisitingURL.md)
+- What really happens when you navigate to a URL
 
 ### [Web Crawler](/WebCrawler.md)
 - What is a web crawler?
