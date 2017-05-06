@@ -3,6 +3,7 @@
 > Contributor: Daniel Chang
 
 ## HTML Questions
+
 ### What does a doctype do?
 - It tells the browser what version the language the page is written in.
 - It tells your browser how to render your document.
@@ -115,12 +116,6 @@ Stricter error handling.
 - inline - takes up only as much as necessary. Cannot have a width and height set
 - inline-block - takes up the entire width. Will adjust to height. Can wrap.
 
-### What's the difference between a relative, fixed, absolute and statically positioned element?
-- relative - top: 10px will shift down. Allows using z-index.
-- fixed - Stays with the view. Follows you around.
-- absolute - place any page element exactly where you want it. Not affected by other elements. (not flexible)
-- static - Default
-
 ### Explain the box model.
 - The CSS box model is essentially a box that wraps around every HTML element. It consists of: margins, borders, padding, and the actual content.
 - Content - The content of the box, where text and images appear
@@ -130,7 +125,7 @@ Stricter error handling.
 - The box model allows us to add a border around elements, and to define space between elements.^https://o.quizlet.com/i/-qntesLUKZF3Rdq4Bjn0ug_m.jpg
 
 ### Explain the CSS position property.
-- The position property specifies the type of positioning method used for an element (static, relative, absolute or fixed).
+- The position property specifies the type of positioning method used for an element.
 - Static: Default value. Elements render in order, as they appear in the document flow
 - Relative: The element is positioned relative to its normal position, so "left:20px" adds 20 pixels to the element's LEFT position
 - Absolute: The element is positioned relative to its first positioned (not static) ancestor element
