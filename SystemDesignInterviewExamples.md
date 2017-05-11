@@ -55,4 +55,42 @@
  - Moments
  - Search
 
+## Design Photo Sharing App
+
+#### High-level solution
+- Two major objects: user and picture
+- Relational database
+  - User table: name, email, registration date
+  - Picture table
+  - user, follow relation
+  - user, picture relation
+
+#### Potential scale issues
+- Response time
+  - Rendering users feed - the server has to go over everyone the user follows, fetch all the pictures from them, and rank them based on particular algorithms.
+  - Accelerate picture fetching and ranking by implementing infinite scroll feature, use offline pipelines to precompute signals that can speed up the ranking, etc.
+
+- Scale architecture
+  - With millions of users, due to storage, memory, CPU bound issues, and etc, divide the whole system into small components by service and separate each component. Use **load balancers**. Service-oriented architecture > monolithic application.
+
+- Scale database
+  - Vertical splitting (partitioning) by splitting the database into sub-databases by features
+  - Horizontal splitting (sharding) by splitting based on attributes like US users, European users.
+
 ## Design Instagram
+> Source 1: https://engineering.instagram.com/what-powers-instagram-hundreds-of-instances-dozens-of-technologies-adf2e22da2ad
+
+> Source 2:
+https://engineering.instagram.com/sharding-ids-at-instagram-1cf5a71e5a5c
+
+Sharding & IDs at Instagram
+- Make sure all of our important data into memory for quick read
+- Application servers run Django with PostgreSQL as back-end database
+
+**Essential Features**
+
+1) Generated IDs should be sortable by time (so a list of photo IDs, for example, could be sorted without fetching more information about the photos)
+
+2) IDs should ideally be 64 bits (for smaller indexes, and better storage in systems like Redis)
+
+3) The system should introduce as few new ‘moving parts’ as possible — a large part of how we’ve been able to scale Instagram with very few engineers is by choosing simple, easy-to-understand solutions that we trust.
