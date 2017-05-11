@@ -77,6 +77,87 @@
   - Vertical splitting (partitioning) by splitting the database into sub-databases by features
   - Horizontal splitting (sharding) by splitting based on attributes like US users, European users.
 
+
+## The Twitter Problem
+
+> Source: https://www.hiredintech.com/classrooms/system-design/lesson/67
+
+#### Question
+- “Design a simplified version of Twitter where people can post tweets, follow other people and favorite* tweets.”
+
+#### Clarifying Questions
+- How many users do we expect this system to handle?
+  - Let's say 10 million users generating around 100 million requests per day.
+- How many connections will these users each have? (Users will form a graph with the users being the nodes and the edges will represent who follows whom)
+  - We expect that each user will be following 200 other users on average, but expect some extraordinary users with tens of thousands of followers.
+- Tweets -> How many requests will posting new tweets and favoriting them generate?
+  - We expect there will be a maximum of 10 million tweets per day and favorited twice on average per post.
+
+
+      To summarize, here are some more things we now know:
+
+        - 10 million users
+        - 10 million tweets per day
+        - 20 million tweet favorites per day
+        - 100 million HTTP requests to the site
+        - 2 billion “follow” relations
+        - Some users and tweets could generate an extraordinary amount of traffic
+
+
+#### High-level Design
+1) The logic o handle all incoming requests to the application
+2) The data storage to store all the data that needs to be persisted
+
+- Handling user requests
+  - the complexity of the requests that the application receives
+  - the technologies used to implement the application
+    - suggest using a load balancer, which handles initial traffic and sends requests to a set of servers running one or more instances of the application. Also **increased resilience** by using more than one server in case of failure.
+
+
+- Storing the Data
+  - What do we store?
+    - User profile with data
+    - Each user's set of tweets over time
+    - Following users
+    - User <-> tweets Favorite
+
+  - Size of the data?
+    - 10 million tweets per day -> ~3.65 billion tweets per year -> 140 characters -> 2.6 terabytes of data (2 bytes per character)
+    - ~2 billion connections -> 16 gigabytes of data (4 byte integer * 2 IDs)
+    - ~7 billion favorites per year -> ~240 gigabytes of data
+
+  - Using a RD allow us to model relations easily for users, tweets, and the connections between them.
+
+  **Utilize caching such as redis or memcached** to minimize direct reads from the DB by storing the popular bits of data in memory.
+    - DB stores data on disk and its much slower to read than from memory. We could also store more complex pieces of data like the results from popular queries.
+    - DB Indexing => vital for executing quick queries joining tables.
+    - Partitioning DB to improve read and write speeds.
+
+#### Database Schema
+- **User** -> id, username, full name, password digest, timestamp, description
+- **Tweets** -> id, content, timestamp, user_id
+- **Connections** -> follower_id, followee_id
+- **Favorites** -> user_id, tweet_id, created_at
+
+- Implementing queries to our data filtering users by their username => add_index over this build to optimize query time.
+- add_index from user_id and tweets as they are most often called together.
+  - consider also including column created_at to allow users to search filtered results and pull only relevant posts
+  - **Order Matters!** <user_id, created_at> <- user_id will take precedence
+
+#### Additional Considerations
+**Increased # of read requests**
+- Database is the first bottleneck as it become overwhelmed with all the read requests.
+  - a) use replication (denormalization)
+  - b) sharding database and spread the data across different machines
+- Web application itself - it could lead to slow response time
+  - a) scaling out by adding more machines running the application
+- Web deployment: AWS > Heroku with scaling
+- load balancing solution: get rid of single point of failure.
+
+**Scaling the database**
+- Add an in-memory cache solution in front of the database. (key-value store)
+- Partitioning the database
+
 ## Design Instagram
 > Source 1: https://engineering.instagram.com/what-powers-instagram-hundreds-of-instances-dozens-of-technologies-adf2e22da2ad
 
@@ -94,3 +175,6 @@ Sharding & IDs at Instagram
 2) IDs should ideally be 64 bits (for smaller indexes, and better storage in systems like Redis)
 
 3) The system should introduce as few new ‘moving parts’ as possible — a large part of how we’ve been able to scale Instagram with very few engineers is by choosing simple, easy-to-understand solutions that we trust.
+
+**Storing Images (CDN)**
+- Storing the images in an Amazon S3 bucket and retrieving from Amazon's server instead of your own. You keep the images text details on your server including its url path to its location in the S3 cloud server.
