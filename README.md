@@ -39,6 +39,10 @@
 - More basic concepts before reading the architecture section
 - Example questions
 
+### [System Design Interview Examples](/SystemDesignInterviewExamples.md)
+- Twitter
+- Instagram
+
 ### [System Summary](/SystemSummary.md)
 - CheatSheet - System Design
 
