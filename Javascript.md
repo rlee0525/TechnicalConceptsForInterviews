@@ -1,3 +1,19 @@
+# JavaScript: Basics and Tricky Questions
+
+### What are the differences between null and undefined?
+- `null`: No value. Null can be assigned to any variable but is not an object. typeof null returns `object`
+- `undefined`: Undefined means the variable has not been declared yet, or the property doesn't exist on
+the object
+
+### What is a closure?
+- All JS functions have pointers to the variables that are in scope at the time of creation
+- JS functions maintain pointers to variables that they use
+- By returning a function from within a function, variables scoped to the outer function
+can be maintained as 'enclosed' (private) variables in the returned function
+- This technique is often used to create private variables that persist for the duration
+of a program's execution. For example, this is an effective way to do achieve memoization
+in JavaScript
+
 Node is just JavaScript outside of the browser.
 
 In the browser, Window is the global object.
@@ -8,10 +24,16 @@ However, you can not add variables to global implicitly in node the way all vari
 get added to Window in the browser. Instead local variables are namespaced to the file
 in which they are declared.
 
-__dirname is a special variable that gets the path to current directory
-__filename is a special variable that gets the path to the current file
+### What is Node.js ?
 
--PROCESS-
+- Node is actually any JavaScript run outside of the browser, but commonly refers
+to using JavaScript as a backend framework. The followng notes outline some basic
+concepts for developing backends with Node.js
+
+\_\_dirname is a special variable that gets the path to current directory \n
+\_\_filename is a special variable that gets the path to the current file
+
+#### -PROCESS-
 
 The 'process object' is a useful tool in node.
 process.argv is always available, and contains an array that lists the paths to the current
@@ -31,7 +53,7 @@ the 'path module' needs to be required in and usually gets required in to a loca
 The v8 module give you access to memory use. you can call v8.getHeapStatistics() to get some information
 about the memory in use in your computer.
 
--Readline-
+#### -Readline-
 
 The readlines module will allow you to get access to inputs from the user.
 
@@ -50,7 +72,7 @@ You can also listen for the 'close' event, which allows you to handle closing th
 
 Call readline.close() to end the listening, and process.exit() to kill it off.
 
--EVENT EMITTER-
+#### -EVENT EMITTER-
 
 The eventEmitter module implements the publish-subscribe ('pub-sub') design pattern in JavaScript.
 
@@ -65,7 +87,7 @@ argument. Subsequent arguments will be passed along to the handler callback.
 Any objects that you create that inherit from EventEmitter can similarly be set to listen for specific events by
 calling .on() on the object. .on() takes two arguments, the event name (String) and a callback.
 
--COMMON JS-
+#### -COMMON JS-
 
 In ES5, you can require in built-in modules by adding:
 var someVariable = require('moduleName');
@@ -77,7 +99,7 @@ The result of this type of require statement depends completely on what is expor
 the source file. You control what gets exported with module.exports. Whatever you set
 module.exports equal to will be returned when require is called externally.
 
--CHILD_PROCESS-
+#### -CHILD_PROCESS-
 
 .exec
 
@@ -95,7 +117,7 @@ with a callback that is passed in as a second argument.
 a node.js script. The call to .spawn takes a string command as an argument, with optional arguments
 following the command string. The command passed in will be executed asynchronously.
 
--FS-
+#### -FS-
 
 The fs module is used to access the file directory. All of the commands defined in the fs
 module have both synchronous and asynchronous forms. There are many commands, which can be found
@@ -134,7 +156,7 @@ fs.rmdir() and fs.rmdirSync() will remove a directory, but only if it's empty. I
 files, they must all be removed first, before rmdir will work. Use fs.unlink() to remove files from
 the directory.
 
--STREAM_INTERFACE-
+#### -STREAM_INTERFACE-
 
 The stream interface breaks data into smaller chunks for more efficient processing. The process.stin and
 process.stout functions both implement this interface.
@@ -152,7 +174,7 @@ add event listeners like so:
 fs.createWriteStream('New_File_Name') returns a stream writer, which has a write() method that will add text
 to a file. Then, call .close() on the stream to tie it off.
 
--HTTP- and -HTTPS-
+#### -HTTP- and -HTTPS-
 
 http and https modules can handle requests and be used to create servers. The https module requires
 a security certificate as an argument.
@@ -207,7 +229,7 @@ Example (ES5): // THIS DIDN'T WORK FOR ME!!!
     })
   })
 
-BUILDING SERVERS with HTTP and HTTPS
+#### BUILDING SERVERS with HTTP and HTTPS
 
 both http module and https can respond to requests. HTTPS will require a security
 certificate.
@@ -244,7 +266,7 @@ request types by inspecting the request.method. If it is 'GET' (req.method === "
 you can do one thing, but if it is 'POST' (req.method === "POST") do whatever
 else you need to.
 
--EXPRESS-
+#### -EXPRESS-
 
 Express is the most popular framework for building websites with Node. Although you can
 roll your own using the fs and http or https modules, using a framework like Express
