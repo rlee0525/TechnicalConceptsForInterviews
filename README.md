@@ -87,7 +87,7 @@ To fix a bug or create a feature, follow these steps:
 3. Make changes or add new changes.
 5. Commit your changes (`git add -A; git commit -m 'Awesome new feature'`)
 6. Push to the branch (`git push origin awesome-feature`)
-7. Create a Pull Request, add appropriate label and assign [Raymond Lee](https://www.github.com/rlee0525) and [David Hu](https://www.github.com/davidhu2000) as reviewers.
+7. Create a Pull Request, add appropriate label and assign [Raymond Lee](https://www.github.com/rlee0525) as a reviewer.
 
 Please click [here](https://github.com/rlee0525/TechnicalConceptsForInterviews/issues/new) to report an issue or request a new feature.
 
