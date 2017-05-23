@@ -23,6 +23,10 @@
 - Request methods
 - Cookies
 
+### [JavaScript](/JavaScriptNode.md)
+- JavaScript: Basics and Tricky Questions
+- Node / Express / Readline / FS / Stream / etc.
+
 ### [Miscellaneous Interview Questions](/Miscellaneous.md)
 - Explain Internet
 
@@ -95,3 +99,4 @@ Please click [here](https://github.com/rlee0525/TechnicalConceptsForInterviews/i
 - [Michael Mach](https://github.com/mike591)
 - [Randy Jap](https://github.com/randyjap)
 - [Tai Chung](https://github.com/tchung1118)
+- [Torah Oglander](https://github.com/MixMasterT)
