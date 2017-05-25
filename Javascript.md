@@ -189,7 +189,7 @@ the response to the request.
 
 The request method implements a stream, so the response may come back as a series of data chunks if it
 is large.
-
+~~~~
 Example (ES5): // THIS DIDN'T WORK FOR ME!!!
   var https = require('https');
   var fs = require('fs');
@@ -227,7 +227,7 @@ Example (ES5): // THIS DIDN'T WORK FOR ME!!!
         console.log("file downloaded");
       })
     })
-  })
+    ~~~~
 
 #### BUILDING SERVERS with HTTP and HTTPS
 
@@ -271,3 +271,51 @@ else you need to.
 Express is the most popular framework for building websites with Node. Although you can
 roll your own using the fs and http or https modules, using a framework like Express
 make the development process faster and smoother.
+
+The basics of express start with installing express as a dependency via NPM (or Yarn).
+Then, in your JavaScript, you will need to require or import Express. You can then
+save your express server into a variable by calling express() without passing any
+arguments.
+
+You can add middleware to your express server by calling .use(callback) on the variable
+that holds your server. The callback takes three arguments: request, response, and next.
+The request and response arguments are just like the ones in the http and https modules.
+The next argument is a function that must be invoked to move on to the next piece of
+middleware (or move on from middleware altogether). Express also comes with some pre-fabricated
+middleware that you may want to use, such as express.static('path') which is a static
+file server that will serve up standard files such as .css an .png type files.
+
+Here is an example of a simple express server:
+~~~~
+var express = require('express');
+
+var app = express();
+
+// this is custom middleware that logs the request method and url
+app.use(function(req, res, next) {
+  console.log(`${req.method} request for ${req.url}`);
+  next();
+})
+~~~~
+app.use(express.static('./public')); // this is built-in static file server middleware
+
+app.listen(3000);
+
+console.log('express server running on port 3000');
+
+module.exports(app); // it is a good idea to export your server so it can be accessed from other files.
+
+With the CORS module, you can add cross-origin resource sharing to your app.
+Simply install and then require the module, and then call cors() as a middleware
+after setting up your request handlers in your code.
+
+#### -Web Sockets-
+
+The ws module can be used to implement WebSockets with Node.js. Require it and instantiate a WebSocketServer by
+calling ```new ws.Server()```
+
+It is also possible to use the socket.io module with express to create a more robust websocket server with polyfill support.
+
+#### -MOCHA-
+
+Mocha and Chai are standard test libraries that work well with Node.js. The standard setup requires a 'test' directory in you root project folder. You will need to install Mocha globally in your system, and install Chai as a dev dependency in your project. Mocha is a testing sweet and Chai provides the matching functions that are required to evaluate the test results. You can require them into your test file as Chai.expect, Chai.should, and Chai.assert. See the official documentation for more information: [Mocha](https://mochajs.org/), [Chai](http://chaijs.com/)
