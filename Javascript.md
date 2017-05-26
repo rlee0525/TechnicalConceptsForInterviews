@@ -319,3 +319,5 @@ It is also possible to use the socket.io module with express to create a more ro
 #### -MOCHA-
 
 Mocha and Chai are standard test libraries that work well with Node.js. The standard setup requires a 'test' directory in you root project folder. You will need to install Mocha globally in your system, and install Chai as a dev dependency in your project. Mocha is a testing sweet and Chai provides the matching functions that are required to evaluate the test results. You can require them into your test file as Chai.expect, Chai.should, and Chai.assert. See the official documentation for more information: [Mocha](https://mochajs.org/), [Chai](http://chaijs.com/)
+
+When writing unit tests for API calls you can use nock.js to create mock-server endpoints. This will speed up the process of running the unit tests, and ensure adequate modularity for more precise testing. Learn more from their github page: [nock.js](https://github.com/node-nock/nock) 
