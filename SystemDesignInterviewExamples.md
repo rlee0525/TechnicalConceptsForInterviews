@@ -178,3 +178,34 @@ Sharding & IDs at Instagram
 
 **Storing Images (CDN)**
 - Storing the images in an Amazon S3 bucket and retrieving from Amazon's server instead of your own. You keep the images text details on your server including its url path to its location in the S3 cloud server.
+
+# Tips and Concepts
+
+## It's an open-ended conversation
+For the most part, you’ll be steering the conversation. It’s up to you to understand the problem. That might mean asking questions, sketching diagrams on the board, and bouncing ideas off your interviewer. Do you know the constraints? What kind of inputs does your system need to handle? You have to get a sense for the scope of the problem before you start exploring the space of possible solutions. And remember, there is no single right answer to a real-world problem. Everything is a tradeoff.
+
+## Topics
+
+### Concurrency 
+  - Threads, deadlock, and starvation 
+  - How to parallelize algorithms
+  - Consistency and coherence
+
+### Networking
+  - IPC and TCP/IP? 
+  - Throughput vs. latency, and when each is the relevant factor
+
+### Abstraction
+  - How do OS, file system, and database work? 
+  - Do you know about the various levels of caching in a modern OS?
+
+### Real-World Performance
+  - Relative performance of RAM, disk, SSD and your network.
+
+### Estimation
+  - Estimation, especially in the form of a back-of-the-envelope calculation, is important because it helps you narrow down the list of possible solutions to only the ones that are feasible. Then you have only a few prototypes or micro-benchmarks to write.
+
+### Availability and Reliability
+  - Are you thinking about how things can fail, especially in a distributed environment? 
+  - Do know how to design a system to cope with network failures?
+  - Do you understand durability?

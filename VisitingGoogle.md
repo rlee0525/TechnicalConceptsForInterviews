@@ -1,30 +1,22 @@
-# Visiting Google
+# Visiting Google (Interesting Article)
 
 > Source: https://plus.google.com/+JeanBaptisteQueru/posts/dfydM2Cnepe
 
-## You just went to the Google home page.
+## You just went to the Google home page
 
-What just actually happened?
+Well, when you know a bit of about how browsers work, it's not quite that simple. You've just put into play HTTP, HTML, CSS, ECMAscript, and more.
 
-Well, when you know a bit of about how browsers work, it's not quite that simple. You've just put into play HTTP, HTML, CSS, ECMAscript, and more. Those are actually such incredibly complex technologies that they'll make any engineer dizzy if they think about them too much, and such that no single company can deal with that entire complexity.
+## You just connected your computer to www.google.com
 
-## You just connected your computer to www.google.com.
+Well, when you know a bit about how networks work, it's not quite that simple. You've just put into play DNS, TCP, UDP, IP, Wifi, Ethernet, DOCSIS, OC, SONET, and more.
 
-What just actually happened?
+## You just typed www.google.com in the location bar of your browser
 
-Well, when you know a bit about how networks work, it's not quite that simple. You've just put into play DNS, TCP, UDP, IP, Wifi, Ethernet, DOCSIS, OC, SONET, and more. Those are actually such incredibly complex technologies that they'll make any engineer dizzy if they think about them too much, and such that no single company can deal with that entire complexity.
+Well, when you know a bit about how operating systems work, it's not quite that simple. You've just put into play a kernel, a USB host stack, an input dispatcher, an event handler, a font hinter, a sub-pixel rasterizer, a windowing system, a graphics driver, and more, all of those written in high-level languages that get processed by compilers, linkers, optimizers, interpreters, and more.
 
-## You just typed www.google.com in the location bar of your browser.
+## You just pressed a key on your keyboard
 
-What just actually happened?
-
-Well, when you know a bit about how operating systems work, it's not quite that simple. You've just put into play a kernel, a USB host stack, an input dispatcher, an event handler, a font hinter, a sub-pixel rasterizer, a windowing system, a graphics driver, and more, all of those written in high-level languages that get processed by compilers, linkers, optimizers, interpreters, and more. Those are actually such incredibly complex technologies that they'll make any engineer dizzy if they think about them too much, and such that no single company can deal with that entire complexity.
-
-## You just pressed a key on your keyboard.
-
-What just actually happened?
-
-Well, when you know about bit about how input peripherals work, it's not quite that simple. You've just put into play a power regulator, a debouncer, an input multiplexer, a USB device stack, a USB hub stack, all of that implemented in a single chip. That chip is built around thinly sliced wafers of highly purified single-crystal silicon ingot, doped with minute quantities of other atoms that are blasted into the crystal structure, interconnected with multiple layers of aluminum or copper, that are deposited according to patterns of high-energy ultraviolet light that are focused to a precision of a fraction of a micron, connected to the outside world via thin gold wires, all inside a packaging made of a dimensionally and thermally stable resin. The doping patterns and the interconnects implement transistors, which are grouped together to create logic gates. In some parts of the chip, logic gates are combined to create arithmetic and bitwise functions, which are combined to create an ALU. In another part of the chip, logic gates are combined into bistable loops, which are lined up into rows, which are combined with selectors to create a register bank. In another part of the chip, logic gates are combined into bus controllers and instruction decoders and microcode to create an execution scheduler. In another part of the chip, they're combined into address and data multiplexers and timing circuitry to create a memory controller. There's even more. Those are actually such incredibly complex technologies that they'll make any engineer dizzy if they think about them too much, and such that no single company can deal with that entire complexity.
+Well, when you know about bit about how input peripherals work, it's not quite that simple. You've just put into play a power regulator, a debouncer, an input multiplexer, a USB device stack, a USB hub stack, all of that implemented in a single chip. That chip is built around thinly sliced wafers of highly purified single-crystal silicon ingot, doped with minute quantities of other atoms that are blasted into the crystal structure, interconnected with multiple layers of aluminum or copper, that are deposited according to patterns of high-energy ultraviolet light that are focused to a precision of a fraction of a micron, connected to the outside world via thin gold wires, all inside a packaging made of a dimensionally and thermally stable resin. The doping patterns and the interconnects implement transistors, which are grouped together to create logic gates. In some parts of the chip, logic gates are combined to create arithmetic and bitwise functions, which are combined to create an ALU. In another part of the chip, logic gates are combined into bistable loops, which are lined up into rows, which are combined with selectors to create a register bank. In another part of the chip, logic gates are combined into bus controllers and instruction decoders and microcode to create an execution scheduler. In another part of the chip, they're combined into address and data multiplexers and timing circuitry to create a memory controller. There's even more.
 
 Can we simplify further?
 
