@@ -348,3 +348,23 @@ when testing.
 on their state which is very helpful while testing. The Sinon library has
 a concept called a Sinon spy which allows you explore attributes of the mocks
 under test. Stubs are another useful feature in this library.
+
+#### -Grunt-
+
+[Grunt](https://gruntjs.com/) is a task runner that allows you to define tasks, and then manage them with functionality somewhat similar to webpack.
+
+In order to use grunt, you need to create a file called 'Gruntfile.js'. The Gruntfile must export a function that takes a 'grunt' object as its first argument. Within that function you will want to first attach a .initConfig property
+which is POJO with tasks as keys and the configuration details for that task as the values for the keys.
+
+There are many tasks available, and you will need to learn how to use and configure each one since they are all structured differently. For example css preprocessors are available, jshint is available and transpiling is also available.
+
+After the .initConfig, you also want to attach .loadNPMTask calls and .registerTask calls to the grunt object within this
+exported function. Loading makes the tasks available to Grunt, and then registering will specify how you can run the tasks from the command line.
+~~~~
+grunt.loadNPMTask('grunt-contrib-taskName');
+
+grunt.registerTask('default', ['taskName']);
+~~~~
+will load the task into grunt, and then call it when you type grunt at the command line.
+
+There are many things tasks that can be handled with Grunt, so read the docs and google for details.
