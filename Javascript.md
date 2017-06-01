@@ -368,3 +368,27 @@ grunt.registerTask('default', ['taskName']);
 will load the task into grunt, and then call it when you type grunt at the command line.
 
 There are many things tasks that can be handled with Grunt, so read the docs and google for details.
+
+#### -NPM Scripts-
+
+Inside package.json, you can define scripts that can speed up your workflow. Some script names are predefined, such as "start", you can specify what will be done when someone types npm start at the command line by adding a quoted string as the value to the key "start" inside the key "scripts" object in package.json. The string describing the script can include anything that you might type in at the command line. For example "node server.js" would run the code in the file server.js with node. You can also define a prestart key, and the string specified as its value will be executed immediately before the 'start' script.
+
+For predefined keys like start, you can run them with npm key. However, if you want to generate your own script names that are not in the set of predefined options, you can. WHen you want to run these, you will need to type 'npm run MY_SCRIPT' instead of just 'npm script'.
+
+The string that defines the script may have multiple calls concatenated with &.
+
+So, for example:
+~~~
+...inside package.json
+"scripts": {
+  "predev": "grunt", // runs grunt before 'dev'
+  "dev": "open http://localhost:3000 & node-dev app & grunt watch"
+}
+~~~
+will do the following things after you type 'npm run dev' at the command line:
+1. run grunt once
+2. open a browser window to http://localhost:3000
+3. start, serve and watch the contents of app (a node server...)
+4. run grunt watch to update your bundled code as you go
+
+You can add postscript commands just like the prescript ("predev") command shown above. As you should expect, these will execute immediately after the script.
