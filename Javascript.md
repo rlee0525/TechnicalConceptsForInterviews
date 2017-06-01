@@ -311,13 +311,40 @@ after setting up your request handlers in your code.
 
 #### -Web Sockets-
 
-The ws module can be used to implement WebSockets with Node.js. Require it and instantiate a WebSocketServer by
-calling ```new ws.Server()```
+The ws module can be used to implement WebSockets with Node.js. Require it
+and instantiate a WebSocketServer by calling ```new ws.Server()```
 
-It is also possible to use the socket.io module with express to create a more robust websocket server with polyfill support.
+It is also possible to use the socket.io module with express to create a
+more robust websocket server with polyfill support.
 
 #### -MOCHA-
 
-Mocha and Chai are standard test libraries that work well with Node.js. The standard setup requires a 'test' directory in you root project folder. You will need to install Mocha globally in your system, and install Chai as a dev dependency in your project. Mocha is a testing sweet and Chai provides the matching functions that are required to evaluate the test results. You can require them into your test file as Chai.expect, Chai.should, and Chai.assert. See the official documentation for more information: [Mocha](https://mochajs.org/), [Chai](http://chaijs.com/)
+Mocha and Chai are standard test libraries that work well with Node.js.
+The standard setup requires a 'test' directory in you root project folder.
+ will need to install Mocha globally in your system, and install Chai as
+ a dev dependency in your project. Mocha is a testing sweet and Chai provides
+ the matching functions that are required to evaluate the test results.
+ You can require them into your test file as Chai.expect, Chai.should,
+ and Chai.assert. See the official documentation for more information:
+ [Mocha](https://mochajs.org/), [Chai](http://chaijs.com/)
 
-When writing unit tests for API calls you can use nock.js to create mock-server endpoints. This will speed up the process of running the unit tests, and ensure adequate modularity for more precise testing. Learn more from their github page: [nock.js](https://github.com/node-nock/nock) 
+When writing unit tests for API calls you can use nock.js to create mock-server
+endpoints. This will speed up the process of running the unit tests, and
+ensure adequate modularity for more precise testing. Learn more from their
+github page: [nock.js](https://github.com/node-nock/nock)
+
+You can use [Istanbul](https://istanbul.js.org/) for checking code coverage.
+To use it install Istanbul globally, and then call Instanbul _mocha.
+
+[Supertest](https://github.com/visionmedia/supertest) is a helpful library
+for testing api endpoints.
+
+[rewire](https://github.com/jhnns/rewire) is a library that lets you inject
+mocks into your tests so that you can focus on the SUT (system under test)
+without depending on external data, and also avoid mutating external state
+when testing.
+
+[Sinon](http://sinonjs.org/) is a tool for building mocks and checking
+on their state which is very helpful while testing. The Sinon library has
+a concept called a Sinon spy which allows you explore attributes of the mocks
+under test. Stubs are another useful feature in this library.
