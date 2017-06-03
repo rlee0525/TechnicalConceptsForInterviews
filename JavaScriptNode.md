@@ -191,7 +191,7 @@ the response to the request.
 
 The request method implements a stream, so the response may come back as a series of data chunks if it
 is large.
-
+~~~~
 Example (ES5): // THIS DIDN'T WORK FOR ME!!!
   var https = require('https');
   var fs = require('fs');
@@ -229,7 +229,7 @@ Example (ES5): // THIS DIDN'T WORK FOR ME!!!
         console.log("file downloaded");
       })
     })
-  })
+    ~~~~
 
 #### BUILDING SERVERS with HTTP and HTTPS
 
@@ -273,3 +273,124 @@ else you need to.
 Express is the most popular framework for building websites with Node. Although you can
 roll your own using the fs and http or https modules, using a framework like Express
 make the development process faster and smoother.
+
+The basics of express start with installing express as a dependency via NPM (or Yarn).
+Then, in your JavaScript, you will need to require or import Express. You can then
+save your express server into a variable by calling express() without passing any
+arguments.
+
+You can add middleware to your express server by calling .use(callback) on the variable
+that holds your server. The callback takes three arguments: request, response, and next.
+The request and response arguments are just like the ones in the http and https modules.
+The next argument is a function that must be invoked to move on to the next piece of
+middleware (or move on from middleware altogether). Express also comes with some pre-fabricated
+middleware that you may want to use, such as express.static('path') which is a static
+file server that will serve up standard files such as .css an .png type files.
+
+Here is an example of a simple express server:
+~~~~
+var express = require('express');
+
+var app = express();
+
+// this is custom middleware that logs the request method and url
+app.use(function(req, res, next) {
+  console.log(`${req.method} request for ${req.url}`);
+  next();
+})
+~~~~
+app.use(express.static('./public')); // this is built-in static file server middleware
+
+app.listen(3000);
+
+console.log('express server running on port 3000');
+
+module.exports(app); // it is a good idea to export your server so it can be accessed from other files.
+
+With the CORS module, you can add cross-origin resource sharing to your app.
+Simply install and then require the module, and then call cors() as a middleware
+after setting up your request handlers in your code.
+
+#### -Web Sockets-
+
+The ws module can be used to implement WebSockets with Node.js. Require it
+and instantiate a WebSocketServer by calling ```new ws.Server()```
+
+It is also possible to use the socket.io module with express to create a
+more robust websocket server with polyfill support.
+
+#### -MOCHA-
+
+Mocha and Chai are standard test libraries that work well with Node.js.
+The standard setup requires a 'test' directory in you root project folder.
+ will need to install Mocha globally in your system, and install Chai as
+ a dev dependency in your project. Mocha is a testing sweet and Chai provides
+ the matching functions that are required to evaluate the test results.
+ You can require them into your test file as Chai.expect, Chai.should,
+ and Chai.assert. See the official documentation for more information:
+ [Mocha](https://mochajs.org/), [Chai](http://chaijs.com/)
+
+When writing unit tests for API calls you can use nock.js to create mock-server
+endpoints. This will speed up the process of running the unit tests, and
+ensure adequate modularity for more precise testing. Learn more from their
+github page: [nock.js](https://github.com/node-nock/nock)
+
+You can use [Istanbul](https://istanbul.js.org/) for checking code coverage.
+To use it install Istanbul globally, and then call Instanbul _mocha.
+
+[Supertest](https://github.com/visionmedia/supertest) is a helpful library
+for testing api endpoints.
+
+[rewire](https://github.com/jhnns/rewire) is a library that lets you inject
+mocks into your tests so that you can focus on the SUT (system under test)
+without depending on external data, and also avoid mutating external state
+when testing.
+
+[Sinon](http://sinonjs.org/) is a tool for building mocks and checking
+on their state which is very helpful while testing. The Sinon library has
+a concept called a Sinon spy which allows you explore attributes of the mocks
+under test. Stubs are another useful feature in this library.
+
+#### -Grunt-
+
+[Grunt](https://gruntjs.com/) is a task runner that allows you to define tasks, and then manage them with functionality somewhat similar to webpack.
+
+In order to use grunt, you need to create a file called 'Gruntfile.js'. The Gruntfile must export a function that takes a 'grunt' object as its first argument. Within that function you will want to first attach a .initConfig property
+which is POJO with tasks as keys and the configuration details for that task as the values for the keys.
+
+There are many tasks available, and you will need to learn how to use and configure each one since they are all structured differently. For example css preprocessors are available, jshint is available and transpiling is also available.
+
+After the .initConfig, you also want to attach .loadNPMTask calls and .registerTask calls to the grunt object within this
+exported function. Loading makes the tasks available to Grunt, and then registering will specify how you can run the tasks from the command line.
+~~~~
+grunt.loadNPMTask('grunt-contrib-taskName');
+
+grunt.registerTask('default', ['taskName']);
+~~~~
+will load the task into grunt, and then call it when you type grunt at the command line.
+
+There are many things tasks that can be handled with Grunt, so read the docs and google for details.
+
+#### -NPM Scripts-
+
+Inside package.json, you can define scripts that can speed up your workflow. Some script names are predefined, such as "start", you can specify what will be done when someone types npm start at the command line by adding a quoted string as the value to the key "start" inside the key "scripts" object in package.json. The string describing the script can include anything that you might type in at the command line. For example "node server.js" would run the code in the file server.js with node. You can also define a prestart key, and the string specified as its value will be executed immediately before the 'start' script.
+
+For predefined keys like start, you can run them with npm key. However, if you want to generate your own script names that are not in the set of predefined options, you can. WHen you want to run these, you will need to type 'npm run MY_SCRIPT' instead of just 'npm script'.
+
+The string that defines the script may have multiple calls concatenated with &.
+
+So, for example:
+~~~
+...inside package.json
+"scripts": {
+  "predev": "grunt", // runs grunt before 'dev'
+  "dev": "open http://localhost:3000 & node-dev app & grunt watch"
+}
+~~~
+will do the following things after you type 'npm run dev' at the command line:
+1. run grunt once
+2. open a browser window to http://localhost:3000
+3. start, serve and watch the contents of app (a node server...)
+4. run grunt watch to update your bundled code as you go
+
+You can add postscript commands just like the prescript ("predev") command shown above. As you should expect, these will execute immediately after the script.
