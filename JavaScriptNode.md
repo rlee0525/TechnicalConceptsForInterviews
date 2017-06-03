@@ -167,11 +167,14 @@ fs.createReadStream() can help you read from a large file without buffering huge
 once. The first argument it takes is a file path and the second is an encoding such as 'UTF-8'.
 fs.createReadStream() returns a stream object, which can be set to listen for events with .on(). You can
 add event listeners like so:
-  const stream = fs.createReadStream('./path_to_file', 'UTF-8');
 
-  stream.once('data', function() { handle first data chunk })
-  stream.on('data', function(dataChunk) { ...do something with data chunk... });
-  stream.on('end', function() { ...handle end of file reading...})
+```javascript
+const stream = fs.createReadStream('./path_to_file', 'UTF-8');
+
+stream.once('data', function() { handle first data chunk })
+stream.on('data', function(dataChunk) { ...do something with data chunk... });
+stream.on('end', function() { ...handle end of file reading...})
+```
 
 fs.createWriteStream('New_File_Name') returns a stream writer, which has a write() method that will add text
 to a file. Then, call .close() on the stream to tie it off.
@@ -191,45 +194,47 @@ the response to the request.
 
 The request method implements a stream, so the response may come back as a series of data chunks if it
 is large.
-~~~~
-Example (ES5): // THIS DIDN'T WORK FOR ME!!!
-  var https = require('https');
-  var fs = require('fs');
 
-  var options = {
-    hostname: "en.wikipedia.org",
-    port: 443,
-    path: '/wiki/George_Washington',
-    method: "GET",
-  }
+```javascript
+// Example (ES5) - THIS DIDN'T WORK FOR ME!!!
+var https = require('https');
+var fs = require('fs');
 
-  var req = https.request(options, function(res) {
-    var responseBody = ""; // start with an empty string and build on this packet by packet
+var options = {
+  hostname: "en.wikipedia.org",
+  port: 443,
+  path: '/wiki/George_Washington',
+  method: "GET",
+};
 
-    console.log("Response started...");
-    console.log(`Server status: ${res.statusCode}`); //mostly es5
-    console.log("Response headers: %j", res.headers);
+var req = https.request(options, function(res) {
+  var responseBody = ""; // start with an empty string and build on this packet by packet
 
-    res.setEncoding('UTF-8'); // You MUST set encoding or it will be binary.
+  console.log("Response started...");
+  console.log(`Server status: ${res.statusCode}`); //mostly es5
+  console.log("Response headers: %j", res.headers);
 
-    res.once('data', function(chunk) { // give one sample chunk to see
-      console.log(chunk);
-    });
+  res.setEncoding('UTF-8'); // You MUST set encoding or it will be binary.
 
-    res.on('data', function(chunk) { // add all packets to response body
-      responseBody += chunk;
-      console.log("chunk, length: ", chunk.length);
-    });
+  res.once('data', function(chunk) { // give one sample chunk to see
+    console.log(chunk);
+  });
 
-    res.on('end', function() {
-      fs.writeFile('George_Washington.html', responseBody, function(err) {
-        if (err) {
-          throw err; // throw err to alert user if problem occurs. DO NOT write file.
-        }
-        console.log("file downloaded");
-      })
+  res.on('data', function(chunk) { // add all packets to response body
+    responseBody += chunk;
+    console.log("chunk, length: ", chunk.length);
+  });
+
+  res.on('end', function() {
+    fs.writeFile('George_Washington.html', responseBody, function(err) {
+      if (err) {
+        throw err; // throw err to alert user if problem occurs. DO NOT write file.
+      }
+      console.log("file downloaded");
     })
-    ~~~~
+  });
+};
+```
 
 #### BUILDING SERVERS with HTTP and HTTPS
 
@@ -288,7 +293,8 @@ middleware that you may want to use, such as express.static('path') which is a s
 file server that will serve up standard files such as .css an .png type files.
 
 Here is an example of a simple express server:
-~~~~
+
+```javascript
 var express = require('express');
 
 var app = express();
@@ -298,7 +304,7 @@ app.use(function(req, res, next) {
   console.log(`${req.method} request for ${req.url}`);
   next();
 })
-~~~~
+
 app.use(express.static('./public')); // this is built-in static file server middleware
 
 app.listen(3000);
@@ -306,6 +312,7 @@ app.listen(3000);
 console.log('express server running on port 3000');
 
 module.exports(app); // it is a good idea to export your server so it can be accessed from other files.
+```
 
 With the CORS module, you can add cross-origin resource sharing to your app.
 Simply install and then require the module, and then call cors() as a middleware
@@ -362,11 +369,13 @@ There are many tasks available, and you will need to learn how to use and config
 
 After the .initConfig, you also want to attach .loadNPMTask calls and .registerTask calls to the grunt object within this
 exported function. Loading makes the tasks available to Grunt, and then registering will specify how you can run the tasks from the command line.
-~~~~
+
+```javascript
 grunt.loadNPMTask('grunt-contrib-taskName');
 
 grunt.registerTask('default', ['taskName']);
-~~~~
+```
+
 will load the task into grunt, and then call it when you type grunt at the command line.
 
 There are many things tasks that can be handled with Grunt, so read the docs and google for details.
@@ -380,13 +389,15 @@ For predefined keys like start, you can run them with npm key. However, if you w
 The string that defines the script may have multiple calls concatenated with &.
 
 So, for example:
-~~~
+
+```javascript
 ...inside package.json
 "scripts": {
   "predev": "grunt", // runs grunt before 'dev'
   "dev": "open http://localhost:3000 & node-dev app & grunt watch"
 }
-~~~
+```
+
 will do the following things after you type 'npm run dev' at the command line:
 1. run grunt once
 2. open a browser window to http://localhost:3000
