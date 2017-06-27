@@ -18,6 +18,13 @@
 ### [Frontend Questions - HTML/CSS](/HTML_CSS.md)
 - HTML and CSS specific frontend interview questions
 
+### [Hash Table Collision Resolution](/HashTableCollisionResolution.md)
+- What is a hash table?
+- What are hash collisions?
+- Open Addressing 
+- Linear and Quadratic Probing
+- Separate Chaining
+
 ### [What is HTTP?](/HTTP.md)
 - HTTP headers
 - Request methods
@@ -68,13 +75,6 @@
 - Contrast to other alternatives
 - Resources
 
-### [Hash Table Collision Resolution](/HashTableCollisionResolution.md)
-- What is a hash table?
-- What are hash collisions?
-- Open Addressing 
-- Linear and Quadratic Probing
-- Separate Chaining
-
 # More Topics...
 **Feel free to work on any of these and make a pull request!**
 - API Design and Webhooks
@@ -96,7 +96,7 @@ To fix a bug or create a feature, follow these steps:
 3. Make changes or add new changes.
 5. Commit your changes (`git add -A; git commit -m 'Awesome new feature'`)
 6. Push to the branch (`git push origin awesome-feature`)
-7. Create a Pull Request, add appropriate label and assign [Raymond Lee](https://www.github.com/rlee0525) as a reviewer.
+7. Create a Pull Request!
 
 Please click [here](https://github.com/rlee0525/TechnicalConceptsForInterviews/issues/new) to report an issue or request a new feature.
 
