@@ -64,15 +64,21 @@
 - How does it work?
 
 ### [WebSocket](/WebSocket.md)
-- What is WebSocket
+- What is WebSocket?
 - Contrast to other alternatives
 - Resources
+
+### [Hash Table Collision Resolution](/HashTableCollisionResolution.md)
+- What is a hash table?
+- What are hash collisions?
+- Open Addressing 
+- Linear and Quadratic Probing
+- Separate Chaining
 
 # More Topics...
 **Feel free to work on any of these and make a pull request!**
 - API Design and Webhooks
 - Topological Sort, Dijkstra's Algorithm, Priority Queue
-- Hash Table Collision Resolution
 - Rabin-Karp Substring Search
 - AVL Trees / Self-balancing BST
 - Red-Black Trees
@@ -103,3 +109,4 @@ Please click [here](https://github.com/rlee0525/TechnicalConceptsForInterviews/i
 - [Randy Jap](https://github.com/randyjap)
 - [Tai Chung](https://github.com/tchung1118)
 - [Torah Oglander](https://github.com/MixMasterT)
+- [Will Ashley](https://github.com/willashley23)
