@@ -5,7 +5,7 @@
 
 ## Background – What is A Hash Table?
 
-A hash table is, essentially, a data structure that maps keys to values. It does this by taking each input into the table and processing it with a hashing function, which is used to determine the index in a bucket the value will rest. 
+A hash table is, essentially, a data structure that maps keys to values. It does this by taking each input into the table and processing it with a hashing function, which is used to determine the index in a bucket the value will rest. Hash tables appear in interviews all the time, especially at companies like Microsoft and Google. Know them! 
 
 Hash tables are useful because insertion, deletion, and lookup of elements can possibly be achieved in constant time. If you have a hash function that behaves consistently, it will tell you where to find an element in a hash table each time. But what if, in the process of trying to store more information in your hash table, your hashing function tells you to store something at an index that is already occupied? 
 
@@ -19,10 +19,9 @@ Let's take a look at a few ways we can approach this problem.
 
 ## Resolutions
 
-### Linear Probing
+### Open Addressing with Linear Probing
 
-Linear probing should be considered the naive solution to a hash collision. Let's look at an example:
-
+Let's look at an example:
 
 `["apple", "bat", "car"]`
 
@@ -40,6 +39,26 @@ So our hash table would look like this:
 
 `["apple", "bat", "car", "ant"]`
 
-But doing this requires us to first check the 1st index, then the 2nd, and finally, we arrive at the 3rd index, where we find free space! As you can see, insertion, deletion, and lookup have devolved to  `O(n)` in the worst case! Bleh!
+But doing this requires us to first check the 1st index, then the 2nd, and finally, we arrive at the 3rd index, where we find free space! As you can see, insertion, deletion, and lookup have devolved to  `O(n)` in the worst case.
+
+And what happens when we want to insert "dog" into the list now? It would hash to index 3, but since "ant" now occupies that space, it must go to index 4. This is called **clustering.**
+
+#### Quadratic Probing 
+
+As you might have noticed, when we *probe* the array for an empty index, we are probing by a *linear* factor, in this case, 1. We simply take the hash index and add 1 to it repeatedly until we find an empty index. But we could also probe by a quadratic factor, but adding to the hashed index the successive outputs of a quadratic polynomial IE:
+
+`H + 1^2, H + 2^2, H + 3^2`
+
+Where `H` is the result originally given by the hashing function. This results in less clustering than linear probing. This only really matters though if your data set is sufficiently large.
 
 ### Separate Chaining
+
+*Separate chaining,* most commonly uses linked lists at each index:
+
+`[{"ant" => "apple"}, {"bat"}, {"car"}]`
+
+Where `=>` represents a pointer to the next node in the list. Using this method, we can simply insert new elements at the head of each list, should there be a collision. 
+
+In the worst case, insertion, lookup, and deletion become `O(n/k)` where `k` is the size of the hash table. 
+
+If `k` is a constant, then `O(n/k)` is really just `O(n)`, but in the real world,  `O(n/k)` is a huge improvement over  `O(n)`
