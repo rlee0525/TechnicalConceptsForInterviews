@@ -74,6 +74,8 @@
 - Open Addressing 
 - Linear and Quadratic Probing
 - Separate Chaining
+– Robin Hood Hashing
+– Cuckoo Hashing
 
 # More Topics...
 **Feel free to work on any of these and make a pull request!**
