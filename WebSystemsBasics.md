@@ -45,3 +45,8 @@
     Scenario 2: Web server with an application server
 
     if the query you want to run has already been done previously and no data has changed since then, the server will generate the results without having to send the request to the database server. This allows a real-time query where a second client can access the same info and receive real time, reliable information without sending another duplicate query to the database server. The server basically acts as an intermediate between the database server and the web server. This allows the information pulled to be reusable while in the first scenario, since this info is embedded in a particular and "customized" HTML page, this is not a reusable process. A second client will have to request the info again and receive another HTML embedded page with the info requested -highly inefficient. Not to mention that this type of server is very flexible due to its ability to manage its own resources, including security, transaction processing, messaging and resource pooling.
+
+
+### Web farm with load balanced application servers
+
+![Web App Diagram](http://res.cloudinary.com/rlee0525/image/upload/v1499810025/0-l2ZTQR-SfotH8Fnx_ustyky.png)
