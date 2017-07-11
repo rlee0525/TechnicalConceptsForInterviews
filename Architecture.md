@@ -1,5 +1,8 @@
 # Architecture (The Basics - High Level Overview)
 
+> If you have a lot of time and want to study system design in-depth:
+> ```https://github.com/donnemartin/system-design-primer.```
+
 ## Architecture Questions vs. Design Questions (They are DIFFERENT!)
 
 ### Design Questions

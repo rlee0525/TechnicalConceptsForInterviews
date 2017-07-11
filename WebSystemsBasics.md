@@ -29,3 +29,4 @@
 - cookies are supported by older browsers (pre HTML5) and usually are a fallback for frameworks
 - cookies can store way less information than WebStorages
 - WebStorage information is never transferred to the server.
+
