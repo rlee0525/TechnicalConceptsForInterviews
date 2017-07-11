@@ -78,9 +78,8 @@
 ### [Web Systems Basics](/WebSystemsBasics.md)
 - HTTP vs. HTTPS
 - XSS vs. CSRF
-- Event Loop in JS
+- Web server vs. Application server
 - Cookie / SessionStorage / LocalStorage
-- HOC React
 
 # More Topics...
 **Feel free to work on any of these and make a pull request!**

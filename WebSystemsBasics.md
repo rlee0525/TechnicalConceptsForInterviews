@@ -30,3 +30,18 @@
 - cookies can store way less information than WebStorages
 - WebStorage information is never transferred to the server.
 
+### Web Server vs. Application Server (Often used interchangeably)
+- Web server is designed to serve HTTP Content. App server can also serve HTTP content but is not limited to just HTTP. (Other protocol support such as RMI/RPC)
+- Web server is designed to serve static content (although plugins are used to generate dynamic HTTP content)
+- App server can do whatever web server is capable of. Additionally, it has components and features to support Application level services such as connection pooling, object pooling, transaction support, messaging services, etc.
+- Most of the production environments have web server acting as reverse proxy to app server -> web server identifies dynamic content request and transparently forwards to app server.
+
+#### Examples
+
+    Scenario 1: Web server without an application server
+
+    you have an online store with only a web server and no application server. The site will provide a display where you can choose a product from. When you submit a query, the site performs a lookup and returns an HTML result back to its client. The web server sends your query directly to the database server (be patient, I will explain this one in our next nugget) and waits for a response. Once received, the web server formulates the response into an HTML file and sends it to your web browser. This back and forth communication between the server and database server happens every time a query is run.
+
+    Scenario 2: Web server with an application server
+
+    if the query you want to run has already been done previously and no data has changed since then, the server will generate the results without having to send the request to the database server. This allows a real-time query where a second client can access the same info and receive real time, reliable information without sending another duplicate query to the database server. The server basically acts as an intermediate between the database server and the web server. This allows the information pulled to be reusable while in the first scenario, since this info is embedded in a particular and "customized" HTML page, this is not a reusable process. A second client will have to request the info again and receive another HTML embedded page with the info requested -highly inefficient. Not to mention that this type of server is very flexible due to its ability to manage its own resources, including security, transaction processing, messaging and resource pooling.
