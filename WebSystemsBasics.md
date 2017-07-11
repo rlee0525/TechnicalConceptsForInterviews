@@ -21,3 +21,11 @@
 - Unlike RFI (Remote File Inclusion) or SQLi (SQL injection), you are attacking a user rather than the server.
 - XSS is generally more powerful because it allows the execution of arbitrary script code while CSRF is restrcted to a particular action.
 - XSS attack also effectively bypasses all anti-CSRF measures if conducted successfully.
+
+### Cookie / SessionStorage / LocalStorage
+- localStorage and sessionStorage are both WebStorages and features of HTML5.
+- localStorage stores information as long as the user does not delete them.
+- sessionStorage stores information as long as the session goes. (Typically until the user closes the tab/browser).
+- cookies are supported by older browsers (pre HTML5) and usually are a fallback for frameworks
+- cookies can store way less information than WebStorages
+- WebStorage information is never transferred to the server.
