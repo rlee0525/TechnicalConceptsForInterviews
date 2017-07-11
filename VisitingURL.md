@@ -8,7 +8,9 @@
 ## Step 2
 ### The browser looks up the IP address for the domain name.
 
-- **DNS Lookup**
+- **DNS Lookup** 
+  - Domain Name Servers (DNS) are the Internet's equivalent of a phone book. They maintain a directory of domain names and translate them to Internet Protocol (IP) addresses. This is necessary because, although domain names are easy for people to remember, computers or machines, access websites based on IP addresses.
+  
   - **Browser cache** – The browser caches DNS records for about 30 minutes.
 
   - **OS cache** – If the browser cache does not contain the desired record, the browser makes a system call (gethostbyname in Windows). The OS has its own cache.
