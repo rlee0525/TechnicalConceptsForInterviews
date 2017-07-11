@@ -49,4 +49,6 @@
 
 ### Web farm with load balanced application servers
 
+> https://medium.com/on-coding/web-application-architecture-bca09ce0fabe
+
 ![Web App Diagram](http://res.cloudinary.com/rlee0525/image/upload/v1499810025/0-l2ZTQR-SfotH8Fnx_ustyky.png)
