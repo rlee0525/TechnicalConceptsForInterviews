@@ -60,7 +60,7 @@
 ### [URL Shortner](/URLShortner.md)
 - How would you design a URL Shortner?
 
-### [Navigating To A URL](/VisitingURL.md)
+### [Navigating To A URL](/VisitingURL.md) :star:
 - What really happens when you navigate to a URL
 
 ### [Visiting Google](/VisitingGoogle.md)
@@ -74,6 +74,13 @@
 - What is WebSocket?
 - Contrast to other alternatives
 - Resources
+
+### [Web Systems Basics](/WebSystemsBasics.md)
+- HTTP vs. HTTPS
+- XSS vs. CSRF
+- Event Loop in JS
+- Cookie / SessionStorage / LocalStorage
+- HOC React
 
 # More Topics...
 **Feel free to work on any of these and make a pull request!**
