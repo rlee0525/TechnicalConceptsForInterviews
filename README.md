@@ -80,6 +80,7 @@
 - XSS vs. CSRF
 - Web server vs. Application server
 - Cookie / SessionStorage / LocalStorage
+- Cookies vs. Tokens
 
 # More Topics...
 **Feel free to work on any of these and make a pull request!**

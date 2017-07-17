@@ -52,3 +52,55 @@
 > https://medium.com/on-coding/web-application-architecture-bca09ce0fabe
 
 ![Web App Diagram](http://res.cloudinary.com/rlee0525/image/upload/v1499810025/0-l2ZTQR-SfotH8Fnx_ustyky.png)
+
+### Cookies vs Tokens
+
+> https://auth0.com/blog/cookies-vs-tokens-definitive-guide/
+
+#### Cookie Based Authentication
+- Has been the default method for handling user authentication for a long time.
+- **stateful**
+    - Authentication record or session must be kept both server AND client-side.
+    - The server needs to keep track of active sessions in a DB
+    - On the FE, a cookie is created that holds a session identifier.
+- User enters login credentials -> Server verifies and creates a session that is stored in a DB -> a cookie with the session ID is placed in the browser -> subsequent requests, the session ID is verified against the DB and if valid, request processes -> session is destroyed on both sides once a user logs out of the app.
+
+#### Token Based Authentication
+- Increased prevalence due to SPA (Single Page Applications), web APIs, and IoT.
+- JSON Web Tokens (JWTs) <- standard
+- **stateless**
+- The server does NOT keep a record of which users are logged in / JWTs.
+- Every request to the server is accompanied by a token which the server uses to verify the authenticity of the request.
+- e.g. Authorization header: `Bearer { JWT }`
+- User enters login credentials -> Server verifies and returns a signed token -> Stored most commonly in local storage but also in session storage / cookie -> subsequent requests, this token is included in the header -> The server decodes the JWT and if the token is valid, processes the request -> token is destroyed client-side without the need to interact with the server once a user logs out.
+
+#### Advantages of Token Based Authentications
+- **Stateless, Scalable, and Decoupled**
+    - The BE doesn't have to keep a record of tokens
+    - Auth0 can provide services to sign tokens
+    - The server only needs to verify the validity of the token
+- **Cross Doman and CORS**
+    - Using JWT and checking with it every call to the BE, CORS enabled makes managing different domains trivial compared to cookies
+- **JWT**
+    - Unlike cookies where you simply store the session id, JWT allow you to store any type of metadata in JSON.
+    - e.g. user id, expiration of the token, email address, who issued the token, permission, etc.
+- **Performance**
+    - Decoding a token is faster than looking up the BE
+    - Additional lookup calls can also be avoided by including permission level to token
+- **Mobile Ready**
+
+#### Concerns with Token Based Authentications
+- **JWT Size**
+    - Much bigger than a session cookie - each request to the server must include the JWT along with it
+- **Where to store tokens**
+    - Mostly stored in local storage
+    - Unlike cookies, local storage is sandboxed to a specific domain and its data cannot be accessed by any other domain including sub-domains
+    - Session storage can also be the place
+- **XSS and CSRF**
+    - Cross Site Scripting, if not properly sanitized, could be executed on your domain making JWT tokens vulnerable
+    - Storing JWT in local storage will prevent CSRF attacks
+    - To prevent theses, have a short expiration time for tokens
+- **Tokens**
+    - Comprised of three parts: header, payload, and signature
+    - Encoded NOT encrypted
+    - No sensitive data should be stored in the payload
