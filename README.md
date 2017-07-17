@@ -67,6 +67,9 @@
 - What is a web crawler?
 - How does it work?
 
+### [Website Performance](/WebsitePerformance.md)
+- Speeding up your website
+
 ### [WebSocket](/WebSocket.md)
 - What is WebSocket?
 - Contrast to other alternatives
