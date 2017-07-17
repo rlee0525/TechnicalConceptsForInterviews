@@ -54,9 +54,6 @@
 ### [System Summary](/SystemSummary.md)
 - CheatSheet - System Design
 
-### [TypeScript Crash Course](https://github.com/davidhu2000/typescript_crash_course)
-- [David Hu](https://github.com/davidhu2000) is currently making a great repo on TypeScript crash course. Check it out!
-
 ### [URL Shortner](/URLShortner.md)
 - How would you design a URL Shortner?
 
@@ -75,7 +72,7 @@
 - Contrast to other alternatives
 - Resources
 
-### [Web Systems Basics](/WebSystemsBasics.md)
+### [Web Systems Basics](/WebSystemsBasics.md) :star:
 - HTTP vs. HTTPS
 - XSS vs. CSRF
 - Web server vs. Application server
