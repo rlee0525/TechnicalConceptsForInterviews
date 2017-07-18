@@ -8,7 +8,9 @@
 ## Step 2
 ### The browser looks up the IP address for the domain name.
 
-- **DNS Lookup**
+- **DNS Lookup** 
+  - Domain Name Servers (DNS) are the Internet's equivalent of a phone book. They maintain a directory of domain names and translate them to Internet Protocol (IP) addresses. This is necessary because, although domain names are easy for people to remember, computers or machines, access websites based on IP addresses.
+
   - **Browser cache** – The browser caches DNS records for about 30 minutes.
 
   - **OS cache** – If the browser cache does not contain the desired record, the browser makes a system call (gethostbyname in Windows). The OS has its own cache.
@@ -37,24 +39,37 @@
 
 ## Step 3
 ### The browser sends a HTTP request to the web server.
+- FB homepage or other dynamic pages expire very quickly from the browser cache and therefore the browser will send GET request to the FB server.
+- URL: "http://facebook.com/"
 
 ## Step 4
 ### The Facebook server responds with a permanent redirect.
+- 301 status code (permanent redirect)
+- Tell the browser to go to "http://www.facebook.com/"
+- Search engine rankings between two URLs may be differenct.
 
 ## Step 5
 ### The browser follows the redirect.
+- The browser sends another GET request to "http://www.facebook.com/".
 
 ## Step 6
 ### The server ‘handles’ the request.
+- The FB server will receive the GET request, process it, and send back a response.
+- Request handler reads the request, its parameters, and cookies to generate a HTML response.
 
 ## Step 7
 ### The server sends back a HTML response.
+- 200 status code.
+- response body is compressed and sent to the browser.
 
 ## Step 8
 ### The browser begins rendering the HTML.
+- It begins rendering the website even before the browser has received the entire HTML document.
 
 ## Step 9
 ### The browser sends requests for objects embedded in HTML.
+- As the browser renders the HTML, it will notice tags that require fetching of other URLs which will send more API requests.
 
 ## Step 10
 ### The browser sends further asynchronous (AJAX) requests.
+- The client continues to communicate with the server even after the page is rendered.

@@ -18,6 +18,15 @@
 ### [Frontend Questions - HTML/CSS](/HTML_CSS.md)
 - HTML and CSS specific frontend interview questions
 
+### [Hash Table Collision Resolution](/HashTableCollisionResolution.md)
+- What is a hash table?
+- What are hash collisions?
+- Open Addressing 
+- Linear and Quadratic Probing
+- Separate Chaining
+– Robin Hood Hashing
+– Cuckoo Hashing
+
 ### [What is HTTP?](/HTTP.md)
 - HTTP headers
 - Request methods
@@ -47,13 +56,10 @@
 ### [System Summary](/SystemSummary.md)
 - CheatSheet - System Design
 
-### [TypeScript Crash Course](https://github.com/davidhu2000/typescript_crash_course)
-- [David Hu](https://github.com/davidhu2000) is currently making a great repo on TypeScript crash course. Check it out!
-
 ### [URL Shortner](/URLShortner.md)
 - How would you design a URL Shortner?
 
-### [Navigating To A URL](/VisitingURL.md)
+### [Navigating To A URL](/VisitingURL.md) :star:
 - What really happens when you navigate to a URL
 
 ### [Visiting Google](/VisitingGoogle.md)
@@ -63,19 +69,20 @@
 - What is a web crawler?
 - How does it work?
 
+### [Website Performance](/WebsitePerformance.md)
+- Speeding up your website
+
 ### [WebSocket](/WebSocket.md)
 - What is WebSocket?
 - Contrast to other alternatives
 - Resources
 
-### [Hash Table Collision Resolution](/HashTableCollisionResolution.md)
-- What is a hash table?
-- What are hash collisions?
-- Open Addressing 
-- Linear and Quadratic Probing
-- Separate Chaining
-– Robin Hood Hashing
-– Cuckoo Hashing
+### [Web Systems Basics](/WebSystemsBasics.md) :star:
+- HTTP vs. HTTPS
+- XSS vs. CSRF
+- Web server vs. Application server
+- Cookie / SessionStorage / LocalStorage
+- Cookies vs. Tokens
 
 # More Topics...
 **Feel free to work on any of these and make a pull request!**
@@ -98,7 +105,7 @@ To fix a bug or create a feature, follow these steps:
 3. Make changes or add new changes.
 5. Commit your changes (`git add -A; git commit -m 'Awesome new feature'`)
 6. Push to the branch (`git push origin awesome-feature`)
-7. Create a Pull Request, add appropriate label and assign [Raymond Lee](https://www.github.com/rlee0525) as a reviewer.
+7. Create a Pull Request!
 
 Please click [here](https://github.com/rlee0525/TechnicalConceptsForInterviews/issues/new) to report an issue or request a new feature.
 
