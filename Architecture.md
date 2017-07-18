@@ -7,7 +7,7 @@
 
 ### Design Questions
 - How would you design a Scrabble game? (Object-oriented Design!)
-- What are some architecture choice you make to create a problem that manages a car park?
+- What are some architecture choices you make to create a system that manages a car park?
 - Walk me through how you'd make a Tetris game. How would you model the data?
 
 **classes, instance variables, how they interact, etc.**
@@ -53,14 +53,14 @@
 
 - high write load, then shard (e.g. WhatsApp)
   - Not good for Relational DB.
-  - Use data sharding. keep database smaller and organized. sharding becomes really bad when data is shared across sharded tables
+  - Use data sharding. keep database smaller and organized. Sharding becomes really bad when data is shared across sharded tables
     - multiple data centers must be kept consistent
     - within shard, master slave replication exists
 - easy to undo: among the reasons why it's popular among startups
 
 ### CDNs
 - Giant data centers designed to send big files to users and to their ISPs as fast as possible - geographically closer (everywhere)
-- If you are front end is running slowly, you can use CDN! (such as JS, jQuery, Bootstrap, or CSS)
+- If your front end is running slowly, you can use CDN! (such as JS, jQuery, Bootstrap, or CSS)
 - All the JS files will be concatenated together into a giant file to reduce to only one request. (This is why we use Webpack to do it!)
 - your server should return only HTML markup (much faster loading)
 
@@ -79,9 +79,9 @@
 
 #### Heroku vs. AWS
 - Heroku is PaaS (Platform As A Service) - Heroku will figure out all of the settings (PaaS) and therefore more expensive - not suitable for large scale app because it is simply too expensive and not as configurable.
-- AWS is IaaS (Infrastructure As A Service) - Just servers without additional services. Provides access to virtual machines that are just fresh linux box. DevOps will make sure these servers have right configurations to run your codes correctly. -> Definitely cheaper than using PaaS and generally cheaper than having and managing your own servers (unless you are a giant company that needs a lot of data centers).
+- AWS is IaaS (Infrastructure As A Service) - Just servers without additional services. Provides access to virtual machines that are just fresh linux boxes. DevOps will make sure these servers have right configurations to run your code correctly. -> Definitely cheaper than using PaaS and generally cheaper than having and managing your own servers (unless you are a giant company that needs a lot of data centers).
 
-#### Services vs. Monolith
+#### Microservices vs. Monolithic
 - SOA (service-oriented architecture) AKA "microservices" (Modularity on the application level)
   - e.g. Multiple rails app (one for user, one for tweets, etc) -> tweet syntax error won't break user authentication app.
 - Monoliths

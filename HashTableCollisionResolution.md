@@ -62,3 +62,11 @@ Where `=>` represents a pointer to the next node in the list. Using this method,
 In the worst case, insertion, lookup, and deletion become `O(n/k)` where `k` is the size of the hash table. 
 
 If `k` is a constant, then `O(n/k)` is really just `O(n)`, but in the real world,  `O(n/k)` is a huge improvement over  `O(n)`
+
+### Robin Hood hashing
+
+*Robin Hood hashing* says that in the event of a collision, the new value may displace the value currently residing in the bucket if its probe count is larger than the key at the current position. Since both the worst case and the variation in the number of probes is reduced dramatically, an interesting variation is to probe the table starting at the expected successful probe value and then expand from that position in both directions.
+
+### Cuckoo hashing
+
+*Cuckoo Hashing* utilizes two or more hashing functions to resolve collisions. When a collision occurs, the value is rehashed using the second hash function, if that still causes a collision, then it will rehash with the third hashing function, and so on, until there it either finds an empty bucket for the value or runs out of hashing functions. If it runs out of hashing functions, it will use the last hashing function to place the value in its corresponding bucket, and remove whatever value is currently there, and rehash it using the first hashing function. This process continues over and over until a place for all values is found. This does mean that any value could possibly be in more than one location, but still ensures constant time lookup in the worst case, and amortized constant time for insertion and deletion.  

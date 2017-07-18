@@ -24,6 +24,8 @@
 - Open Addressing 
 - Linear and Quadratic Probing
 - Separate Chaining
+– Robin Hood Hashing
+– Cuckoo Hashing
 
 ### [What is HTTP?](/HTTP.md)
 - HTTP headers
