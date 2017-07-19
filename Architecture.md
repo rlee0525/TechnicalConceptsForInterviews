@@ -72,6 +72,48 @@
 - Store common queries (e.g. someone's tweets <- no need to hit DB), expensive queries (e.g. trending hashtag), or static data
 - Anything that hits DB hits caching layer first and is stored
 - Cache invalidation such as LRU
+- **Types of caching**
+  - Client caching
+  - CDN caching
+  - Web server caching (reverse proxies, cache requests and return responses without having to contact application servers)
+  - DB caching
+  - Application caching
+    - In-memory caches such as Memcached and Redis are key-value stores between your application and your data storage.  Since the data is held in RAM, it is much faster than typical databases where data is stored on disk.  RAM is more limited than disk, so cache invalidation algorithms such as LRU can help invalidate 'cold' entries and keep 'hot' data in RAM.
+
+    Redis has the following additional features:
+
+    * Persistence option
+    * Built-in data structures such as sorted sets and lists
+
+    There are multiple levels you can cache that fall into two general categories: **database queries** and **objects**:
+
+    * Row level
+    * Query-level
+    * Fully-formed serializable objects
+    * Fully-rendered HTML
+
+    Generally, you should try to avoid file-based caching, as it makes cloning and auto-scaling more difficult.
+  
+    - Caching at the database query level
+
+      Whenever you query the database, hash the query as a key and store the result to the cache.  This approach suffers from expiration issues:
+
+      * Hard to delete a cached result with complex queries
+      * If one piece of data changes such as a table cell, you need to delete all cached queries that might include the changed cell
+
+    - Caching at the object level
+
+      See your data as an object, similar to what you do with your application code.  Have your application assemble the dataset from the database into a class instance or a data structure(s):
+
+      * Remove the object from cache if its underlying data has changed
+      * Allows for asynchronous processing: workers assemble objects by consuming the latest cached object
+
+      Suggestions of what to cache:
+
+      * User sessions
+      * Fully rendered web pages
+      * Activity streams
+      * User graph data
 
 **How do I make a website faster? Caching & CDN**
 
