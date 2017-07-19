@@ -63,8 +63,9 @@
 - If your front end is running slowly, you can use CDN! (such as JS, jQuery, Bootstrap, or CSS)
 - All the JS files will be concatenated together into a giant file to reduce to only one request. (This is why we use Webpack to do it!)
 - your server should return only HTML markup (much faster loading)
-- **How does it work in HTTP flow?**
+- **How does it work in terms of HTTP flow?**
   - When the browser makes a DNS request for a domain name that is handled by a CDN, there is a slightly different process than with small, one-IP sites. The server handling DNS requests for the domain name looks at the incoming request to determine the best set of servers to handle it. At it’s simplest, the DNS server does a geographic lookup based on the DNS resolver’s IP address and then returns an IP address for an edge server that is physically closest to that area. So if I’m making a request and the DNS resolver I’m routed to is Virginia, I’ll be given an IP address for a server on the East coast; if I make the same request through a DNS resolver in California, I’ll be given an IP address for a server on the West coast. You may not end up with a DNS resolver in the same geographic location from where you’re making the request.
+  - Edge servers are proxy caches that work in a manner similar to the browser caches. When a request comes into an edge server, it first checks the cache to see if the content is present. The cache key is the entire URL including query string (just like in a browser). If the content is in cache and the cache entry hasn’t expired, then the content is served directly from the edge server. If, on the other hand, the content is not in the cache or the cache entry has expired, then the edge server makes a request to the origin server to retrieve the information. The origin server is the source of truth for content and is capable of serving all of the content that is available on the CDN. When the edge server receives the response from the origin server, it stores the content in cache based on the HTTP headers of the response.
 
 ### Caching Layer (Big chunk of memory) - fast
 - Important for preventing database from getting smashed
