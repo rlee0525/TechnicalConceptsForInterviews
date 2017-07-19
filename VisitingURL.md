@@ -9,6 +9,8 @@
 ## Step 2
 ### The browser looks up the IP address for the domain name.
 
+**Step 11 could happen on DNS level as well**
+
 - **DNS Lookup** 
   - Domain Name Servers (DNS) are the Internet's equivalent of a phone book. They maintain a directory of domain names and translate them to Internet Protocol (IP) addresses. This is necessary because, although domain names are easy for people to remember, computers or machines, access websites based on IP addresses.
 
