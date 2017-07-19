@@ -1,5 +1,6 @@
 # Navigating To A URL
 > Source: http://igoro.com/archive/what-really-happens-when-you-navigate-to-a-url/
+> Source: https://superuser.com/questions/420949/how-do-cdn-content-distribution-networks-work
 
 ## Step 1
 ### You enter a URL into the browser.
@@ -73,3 +74,17 @@
 ## Step 10
 ### The browser sends further asynchronous (AJAX) requests.
 - The client continues to communicate with the server even after the page is rendered.
+
+## Step 11
+### Utilizing CDN (Initial request)
+- The browser parses the HTML file and finds the referenced image in it that is located at CDN.
+- It finds the IP address of CDN
+- Connects to that IP address -> CDN server -> requests image
+
+## Step 12
+### Utilizing CDN (Geo Location - one of the many approaches)
+- CDN realizes the person is from Germany. Instead of sending the picture, it sends an HTTP redirect with IP address of CDN geographically closer to you.
+
+## Step 13
+### Utilizing Cache
+- This redirect step will be cached and all future requests will go to the closest content server
