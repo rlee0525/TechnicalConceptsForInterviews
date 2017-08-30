@@ -45,15 +45,16 @@
 - Mutex vs. Semaphore
 - Thread locking
 
-### [Sorting Algorithms Summary](/Sorting.md)
+### [Sorting Algorithms](/Sorting.md)
+- High-level thoughts
 - Bubble sort
-- Insertion sort
-- Selection sort
+- Selection sort vs. Insertion sort
 - Quick sort
 - Merge sort
 - Heap sort
 - Bucket sort
 - Radix sort
+- Why is Quicksort preferred?
 
 ### [System Design and Scalability](/SystemDesign.md)
 - More basic concepts before reading the architecture section
