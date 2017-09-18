@@ -37,6 +37,7 @@
 ### Merge sort
 - Breaking input into many different pieces recursively, and merging back together.
 - Space complexity of O(N)
+- Stable sort (because you always merge the left side first then the right side)
 
 ### Heap sort
 - Turn input into a heap
@@ -68,6 +69,19 @@
   - Mergesort, you are going to write 100% of elements in another array and write it back in the original one.
 - Locality of memory access is also important to execution speed.
   - Quicksort has better locality of reference as the next thing to be accessed is usually close in memory to the thing you just looked at, meaning they will likely be cached together.
+
+### Bucket Sort
+- It separates array into smaller buckets / groups and sort them individually using a subsorting algorithm or recursive call to itself and then combines the result.
+- O(n + k)
+- Good for **Dense** arrays
+- Not in-place but stable
+
+### Radix Sort
+- Elements are put into buckets in initial pass O(N)
+- O(nk) (k being the length of each element)
+- Appends the buckets without further sorting and re-buckets it based on the second digit of the numbers.
+- Good for **Sparse** arrays
+- In-place and stable
 
 ### Helpful Links
 - https://www.toptal.com/developers/sorting-algorithms/ (Animated Gifs)
