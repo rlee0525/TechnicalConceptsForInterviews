@@ -1,4 +1,4 @@
-# Sorting Algorithms Summary
+# Sorting Algorithms
 
 ### High-level thoughts
 - Common sorting methods are upper-bounded by a polynomial - they are all O(n^2).
@@ -19,6 +19,17 @@
   - Insertion sort
   - Selection sort
   - Bubble sort
+
+### Selection sort vs. Insertion Sort
+#### Selection Sort
+![Selection Sort Diagram](http://res.cloudinary.com/rlee0525/image/upload/v1505762432/selection_sort_thumb_4_o6gp4v.jpg)
+#### Insertion Sort
+![Insertion Sort Diagram](http://res.cloudinary.com/rlee0525/image/upload/v1505762432/insertion_sort_thumb_1_xoqy9k.jpg)
+#### Comparison
+- Selection sort takes the current element and exchange it with the smallest element on the right side
+- Insertion sort takes the current element and insert it at the appropriate position of the list, adjusting the list every time you insert.
+- Selection sort is always n(n - 1) / 2 ~= n ^ 2
+- Insertion sort is worst case n(n - 1) / 2 ~= n ^ 2
 
 ### Why is quicksort preferred over heapsort or mergesort despite its worst case being O(N^2)?
 - If your data is already ordered,
