@@ -73,9 +73,6 @@
 ### [Navigating To A URL](/VisitingURL.md) :star:
 - What really happens when you navigate to a URL
 
-### [Visiting Google](/VisitingGoogle.md)
-- You just visited google.com. What happened?
-
 ### [Web Crawler](/WebCrawler.md)
 - What is a web crawler?
 - How does it work?
