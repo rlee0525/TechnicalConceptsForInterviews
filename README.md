@@ -45,6 +45,9 @@
 - Mutex vs. Semaphore
 - Thread locking
 
+### [Sorting Algorithms Summary](/Sorting.md)
+
+
 ### [System Design and Scalability](/SystemDesign.md)
 - More basic concepts before reading the architecture section
 - Example questions
