@@ -46,7 +46,14 @@
 - Thread locking
 
 ### [Sorting Algorithms Summary](/Sorting.md)
-
+- High-level thoughts
+- Bubble Sort
+- Selection sort
+- Insertion sort
+- Quicksort
+- Heapsort
+- Counting sort
+- Radix sort
 
 ### [System Design and Scalability](/SystemDesign.md)
 - More basic concepts before reading the architecture section
