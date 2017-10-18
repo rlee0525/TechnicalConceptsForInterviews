@@ -1,5 +1,27 @@
 # RDBMS or NoSQL
 
+## Quick Comparison
+Reasons for **SQL**:
+
+* Structured data
+* Strict schema
+* Relational data
+* Need for complex joins
+* Transactions
+* Clear patterns for scaling
+* More established: developers, community, code, tools, etc
+* Lookups by index are very fast
+
+Reasons for **NoSQL**:
+
+* Semi-structured data
+* Dynamic or flexible schema
+* Non-relational data
+* No need for complex joins
+* Store many TB (or PB) of data
+* Very data intensive workload
+* Very high throughput for IOPS
+
 ## Nature of Data
 - RDBMS: simple tabular structure
 - NoSQL: complicated data with multiple level of nesting (e.g. geo-spatial, engineering parts), easily represented as JSON
