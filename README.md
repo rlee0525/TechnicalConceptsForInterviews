@@ -36,9 +36,6 @@
 - JavaScript: Basics and Tricky Questions
 - Node / Express / Readline / FS / Stream / etc.
 
-### [Miscellaneous Interview Questions](/Miscellaneous.md)
-- Explain Internet
-
 ### [Pointers, Malloc, Threads](/Memory.md)
 - Pointers
 - Memory Allocation
