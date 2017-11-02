@@ -36,7 +36,7 @@
 - JavaScript: Basics and Tricky Questions
 - Node / Express / Readline / FS / Stream / etc.
 
-### [Object-Oriented Programming Basics](/OOP.md)
+### [Object-Oriented Programming Basics](/OOP_Basics.md)
 - What is OOP?
 - Why OOP?
 - Key Concepts
