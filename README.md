@@ -1,5 +1,11 @@
 # Technical Concepts For Interviews
 
+> Study guide to prepare for technical interviews. Feel free to contribute and help improve the repo!
+
+<a target='_blank' rel='nofollow' href='https://app.codesponsor.io/link/UffjBfukMi73H1HvTU24vZiv/rlee0525/TechnicalConceptsForInterviews'>
+  <img alt='Sponsor' width='888' height='68' src='https://app.codesponsor.io/embed/UffjBfukMi73H1HvTU24vZiv/rlee0525/TechnicalConceptsForInterviews.svg' />
+</a>
+
 ### [Angular vs. React](/AngularVReact.md)
 - Overview
 
